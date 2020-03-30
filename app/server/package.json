@@ -8,5 +8,9 @@
     "test": "jest"
   },
   "author": "recEV Team",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc": "^3.6.3",
+    "jsdoc-mermaid": "^1.0.0"
+  }
 }
