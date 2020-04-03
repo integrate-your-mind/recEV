@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Feature ReadMe
 
 ### Things to Make Sure Happen Before you Edit
@@ -24,10 +23,3 @@ $ git checkout feature
 $ git merge --no-ff feature_name
 $ git branch -d feature_name
 $ git push origin feature
-```
-=======
-# I fixed a README!
-# Kevin's Change
-# some change
-# update
->>>>>>> cabf0fdae22db48e59255ddf2b4eabfdcccbcd80
