@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "ionic-react-conference-app",
+  "appName": "client",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
