@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "ionic-react-conference-app",
   "integrations": {
     "capacitor": {}
   },

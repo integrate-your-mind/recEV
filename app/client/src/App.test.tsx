@@ -1,8 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ReactDOM from 'react-dom';
 import App from './App';
+import { render, fireEvent, waitForElement } from '@testing-library/react'
 
-test('renders without crashing', () => {
-  const { baseElement } = render(<App />);
-  expect(baseElement).toBeDefined();
+it('renders without crashing', () => {
+  // const div = document.createElement('div');
+  // ReactDOM.render(<App />, div);
+  // ReactDOM.unmountComponentAtNode(div);
+  const { asFragment, container } = render(<App />);
+  expect(asFragment()).toMatchSnapshot();
 });
