@@ -1,16 +1,16 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "NodeJS & Express Server",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "recEV Team",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "jsdoc": "^3.6.3",
-    "jsdoc-mermaid": "^1.0.0"
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3"
   }
 }
