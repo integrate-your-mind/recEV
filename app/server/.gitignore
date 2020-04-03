@@ -1,0 +1,24 @@
+1 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+     2 
+     3 # dependencies
+     4 /node_modules
+     5 /.pnp
+     6 .pnp.js
+     7 
+     8 # testing
+     9 /coverage
+    10 
+    11 # production
+    12 /build
+    13 
+    14 # misc
+    15 .DS_Store
+    16 .env.local
+    17 .env.development.local
+    18 .env.test.local
+    19 .env.production.local
+    20 .vscode
+    21 
+    22 npm-debug.log*
+    23 yarn-debug.log*
+    24 yarn-error.log*
