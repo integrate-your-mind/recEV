@@ -23,4 +23,3 @@ $ git checkout feature
 $ git merge --no-ff feature_name
 $ git branch -d feature_name
 $ git push origin feature
-```
