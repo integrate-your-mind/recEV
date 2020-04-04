@@ -32,9 +32,11 @@ $ git push origin feature
 [ESLint Plugin Recommended Settings Reference](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
 [ESLint Plugin Recommended Require Type Checking](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.json)
 [ESLint Plugin ESLint Recommended](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts)
-<<<<<<< HEAD
 =======
 >>>>>>> Fixed master readme (#15) (#17)
 =======
 >>>>>>> feature
 >>>>>>> Added ESLint and Configured ESLint config (#22)
+=======
+>>>>>>> feature
+>>>>>>> 76291981fa4f97ef65c21905944ca35593d1106e
