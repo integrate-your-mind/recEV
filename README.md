@@ -6,7 +6,6 @@ First thing to do is to switch to the feature branch before making edits.
 $ git checkout feature
 $ git checkout -b feature_name feature
 ```
-
 By default, when you make changes, do them off of the branch you create from the Feature Branch. Before you do a push, make sure you pull! 
 
 ### How to Use the Feature Branch
