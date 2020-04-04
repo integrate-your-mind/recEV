@@ -19,5 +19,11 @@
         "prettier": "^2.0.2",
         "ts-loader": "^6.2.2",
         "typescript": "^3.8.3"
+    },
+    "dependencies": {
+        "@types/graphql": "^14.5.0",
+        "graphql": "^15.0.0",
+        "reflect-metadata": "^0.1.13",
+        "type-graphql": "^0.17.6"
     }
 }
