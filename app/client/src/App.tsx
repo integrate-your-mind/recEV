@@ -1,8 +1,19 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import {
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
+import Profile from './pages/Profile';
+import Donate from './pages/Donate';
+import Map from './pages/Map';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,10 +37,28 @@ import './theme/variables.css';
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-      </IonRouterOutlet>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route path="/profile" component={Profile} exact={true} />
+          <Route path="/donate" component={Donate} exact={true} />
+          <Route path="/map" component={Map} />
+          <Route path="/" render={() => <Redirect to="/profile" />} exact={true} />
+        </IonRouterOutlet>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="profile" href="/profile">
+            <IonIcon icon={personCircleOutline} />
+            <IonLabel>Profile</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="donate" href="/donate">
+            <IonIcon icon={walletOutline} />
+            <IonLabel>Donate</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="map" href="/map">
+            <IonIcon icon={mapOutline} />
+            <IonLabel>Map</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
