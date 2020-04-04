@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IonCard, IonCardHeader, IonItem, IonLabel, IonAvatar, IonCardContent, IonList } from '@ionic/react';
 
-import './CharityItem.css';
+import './charity-item.styles.scss';
 
 const CharityItem: React.FC<{
     charityName: string;
