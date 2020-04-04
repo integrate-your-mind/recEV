@@ -1,15 +1,19 @@
 # Feature ReadMe
 
 ### Things to Make Sure Happen Before you Edit
+
 First thing to do is to switch to the feature branch before making edits.
+
 ```sh
 $ git checkout feature
 $ git checkout -b feature_name feature
 ```
-By default, when you make changes, do them off of the branch you create from the Feature Branch. Before you do a push, make sure you pull! 
+
+By default, when you make changes, do them off of the branch you create from the Feature Branch. Before you do a push, make sure you pull!
 
 ### How to Use the Feature Branch
-Go ahead and create a separate branch off of the feature branch of changes where you will push the changes to the aplication you have made. Then, merge that branch with the feature branch. 
+
+Go ahead and create a separate branch off of the feature branch of changes where you will push the changes to the application you have made. Then, merge that branch with the feature branch.
 
 ### Command Line Process
 
@@ -23,8 +27,11 @@ $ git merge --no-ff feature_name
 $ git branch -d feature_name
 $ git push origin feature
 ```
+
 ### Code Style Guidelines
+
 #### Resources
+
 [ESLint Rules Reference](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin/docs/rules)
 [ESLint Plugin Recommended Settings Reference](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
 [ESLint Plugin Recommended Require Type Checking](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.json)

@@ -2,35 +2,32 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 // import ExploreContainer from '../components/ExploreContainer';
 import './Donate.css';
-import CharityItem from '../components/CharityItem';
+import CharityItem from '../components/charity-item/charity-item.component';
 
 const Donate: React.FC = () => {
+    const redCrossTags: string[] = ['Food', 'Clothes', 'Spidey'];
 
-  let redCrossTags: string[] = ['Food', 'Clothes', 'Spidey'];
-
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Donate</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Donate</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        {/* <ExploreContainer name="Tab 2 page" /> */}
-        <CharityItem charityName = 'Red Cross' tags = {redCrossTags} charityID = {1} />
-        {/* <CharityItem charityName = 'Mar' />
+    return (
+        <IonPage>
+            <IonHeader>
+                <IonToolbar>
+                    <IonTitle>Donate</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent>
+                <IonHeader collapse="condense">
+                    <IonToolbar>
+                        <IonTitle size="large">Donate</IonTitle>
+                    </IonToolbar>
+                </IonHeader>
+                {/* <ExploreContainer name="Tab 2 page" /> */}
+                <CharityItem charityName="Red Cross" tags={redCrossTags} charityID={1} />
+                {/* <CharityItem charityName = 'Mar' />
         <CharityItem charityName = 'Kevin' />
         <CharityItem charityName = 'Superman' /> */}
-
-
-      </IonContent>
-    </IonPage>
-  );
+            </IonContent>
+        </IonPage>
+    );
 };
 
 export default Donate;
