@@ -23,8 +23,6 @@ $ git checkout feature
 $ git merge --no-ff feature_name
 $ git branch -d feature_name
 $ git push origin feature
-<<<<<<< HEAD
-=======
 ```
 ### Code Style Guidelines
 #### Resources
@@ -32,4 +30,3 @@ $ git push origin feature
 [ESLint Plugin Recommended Settings Reference](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
 [ESLint Plugin Recommended Require Type Checking](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.json)
 [ESLint Plugin ESLint Recommended](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts)
->>>>>>> feature
