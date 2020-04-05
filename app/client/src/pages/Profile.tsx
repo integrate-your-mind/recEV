@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
     IonApp,
     IonContent,
@@ -12,13 +12,18 @@ import {
     IonToolbar,
     IonTitle,
     IonHeader,
+    IonPage,
+    IonIcon,
 } from '@ionic/react';
 import './Profile.css';
 
 import InputControl from '../components/input-control/input-control.component';
 import Submission from '../components/submission/submission.components';
+import Menu from '../components/menu-header/Menu.component';
+import { reorderThreeOutline } from 'ionicons/icons';
 
-const Profile: React.FC = () => {
+const Profile = () => {
+    // window.location.reload(false)
     console.log('Looking at profile');
 
     const usernameInputRef = useRef<HTMLIonInputElement>(null);
@@ -35,38 +40,40 @@ const Profile: React.FC = () => {
         const enteredPassword = passwordInputRef.current?.value;
 
         if (!enteredUsername || !enteredPassword) {
-            setError("Please submit a valid username or password");
-        
+            setError('Please submit a valid username or password');
+
             return;
         }
 
         //post request, post the submission
-
-    }
+    };
 
     const resetHandler = () => {
         usernameInputRef.current!.value = '';
         passwordInputRef.current!.value = '';
-    }
+    };
 
     const clearError = () => {
-        setError("");
-    }
+        setError('');
+    };
 
     return (
         <React.Fragment>
-            <IonAlert  
-                isOpen={!!error} 
+            <IonAlert
+                isOpen={!!error}
                 message={error}
-                buttons={[{
-                    text: "Okay",
-                    handler: () => {
-                        return clearError;
-                    }
-                }]}
+                buttons={[
+                    {
+                        text: 'Okay',
+                        handler: () => {
+                            return clearError;
+                        },
+                    },
+                ]}
             />
 
             <IonApp>
+                <Menu title="profile" />
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>Profile</IonTitle>
@@ -85,7 +92,7 @@ const Profile: React.FC = () => {
                                 <IonItem>
                                     <IonLabel position="floating">
                                         Username
-                                        { console.log('Here in Profile Username, status is ', status)  }
+                                        {console.log('Here in Profile Username, status is ', status)}
                                     </IonLabel>
                                     <IonInput type="text" ref={usernameInputRef}></IonInput>
                                 </IonItem>
@@ -95,16 +102,13 @@ const Profile: React.FC = () => {
                         <IonRow>
                             <IonCol>
                                 <IonItem>
-                                    <IonLabel position="floating">
-                                        Password
-                                    </IonLabel>
+                                    <IonLabel position="floating">Password</IonLabel>
                                     <IonInput type="text" ref={passwordInputRef}></IonInput>
                                 </IonItem>
                             </IonCol>
                         </IonRow>
 
-                        <Submission onSubmit = {submitHandler} onReset = {resetHandler}/>
-
+                        <Submission onSubmit={submitHandler} onReset={resetHandler} />
                     </IonGrid>
                 </IonContent>
             </IonApp>
