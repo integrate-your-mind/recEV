@@ -1,12 +1,12 @@
 import { Int, Field } from 'type-graphql';
 import { Charity } from '../charity.interface';
 
-export class AustralianCharityProperties extends Charity {
+export class AUCharityProperties extends Charity {
     @Field((type) => Int)
     abn: number;
 
     @Field()
-    territoryNSW: string;
+    territoryNSW: boolean;
 
     @Field()
     territoryACT: boolean;

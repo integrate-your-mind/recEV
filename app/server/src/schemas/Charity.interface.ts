@@ -2,8 +2,8 @@ import { Field, InterfaceType, ID } from 'type-graphql';
 
 @InterfaceType()
 export abstract class Charity {
-    @Field((type) => ID)
-    id: string;
+    // @Field((type) => ID)
+    // id: string;
 
     @Field()
     charityLegalName: string;
@@ -33,10 +33,10 @@ export abstract class Charity {
     charityWebsite: string;
 
     @Field({ nullable: true })
-    health?: string;
+    health?: boolean;
 
     @Field({ nullable: true })
-    homelessness?: string;
+    homelessness?: boolean;
 
     @Field()
     postcode: number;
