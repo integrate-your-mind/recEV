@@ -3,11 +3,11 @@ import { IonContent, IonHeader, IonPage } from '@ionic/react';
 
 import { RouteComponentProps } from 'react-router';
 
-interface HomeIdParams {
+interface CharityIdParams {
     id: string
 }
 
-const CharityModal = ({ match }: RouteComponentProps<HomeIdParams>) => {
+const CharityModal = ({ match }: RouteComponentProps<CharityIdParams>) => {
     const id = match.params.id;
 
     return (
