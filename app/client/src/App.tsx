@@ -1,6 +1,6 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
+import { Redirect, Route, Link, Switch } from 'react-router-dom';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
 import Profile from './pages/Profile';
@@ -32,6 +32,8 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 // or you can use `import gql from 'graphql-tag';` instead
 
+import Menu from './components/menu-header/Menu.component';
+
 const client = new ApolloClient({
     //TODO: Setup uri to the gql endpoint
     uri: 'SET SOME URI HERE PLEASE TO THE END POINT',
@@ -51,11 +53,13 @@ const App: React.FC = () => (
         <IonReactRouter>
             <IonTabs>
                 <IonRouterOutlet>
-                    <Route path="/profile" component={Profile} exact={true} />
-                    <Route path="/donate" component={Donate} exact={true} />
-                    <Route path="/map" component={Map} />
-                    <Route path="/" render={() => <Redirect to="/profile" />} exact={true} />
-                    <Route path="/charity/:id" component={CharityModal} />
+                    {/* <Switch> */}
+                        <Route path="/profile" component={Profile} />
+                        <Route path="/donate" component={Donate} exact />
+                        <Route path="/map" component={Map} exact />
+                        <Redirect exact from="/" to="/profile" />
+                        <Route path="/charity/:id" component={CharityModal} />
+                    {/* </Switch> */}
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
                     <IonTabButton tab="profile" href="/profile">
