@@ -34,6 +34,8 @@ const Donate = () => {
                     }
                 >
                     <CharityList />
+
+                    { console.log('Yup in donate')}
                 </Suspense>
             </IonContent>
         </IonPage>
