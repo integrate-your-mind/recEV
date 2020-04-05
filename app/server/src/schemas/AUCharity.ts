@@ -1,10 +1,10 @@
 /* eslint no-use-before-define: 0 */  // --> OFF
-import { Int, Field, ObjectType } from 'type-graphql';
+import { Float, Field, ObjectType } from 'type-graphql';
 import { Charity } from './Charity';
 
 @ObjectType()
 export default class AUCharity extends Charity {
-    @Field((type) => Int)
+    @Field((type) => Float)
     abn!: number;
 
     @Field()
