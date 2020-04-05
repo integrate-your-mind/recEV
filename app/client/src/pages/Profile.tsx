@@ -19,6 +19,8 @@ import InputControl from '../components/input-control/input-control.component';
 import Submission from '../components/submission/submission.components';
 
 const Profile: React.FC = () => {
+    console.log('Looking at profile');
+
     const usernameInputRef = useRef<HTMLIonInputElement>(null);
     const passwordInputRef = useRef<HTMLIonInputElement>(null);
     const [error, setError] = useState<string>();
@@ -83,6 +85,7 @@ const Profile: React.FC = () => {
                                 <IonItem>
                                     <IonLabel position="floating">
                                         Username
+                                        { console.log('Here in Profile Username, status is ', status)  }
                                     </IonLabel>
                                     <IonInput type="text" ref={usernameInputRef}></IonInput>
                                 </IonItem>
