@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 // import ExploreContainer from '../components/ExploreContainer';
 import './Map.scss';
 
@@ -21,6 +21,7 @@ const Tab3: React.FC = () => {
                     </IonToolbar>
                 </IonHeader>
                 <img src={mapImage} />
+                <IonButton  color="primary" href="/profile">Profile</IonButton>
             </IonContent>
         </IonPage>
     );

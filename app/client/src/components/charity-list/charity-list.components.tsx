@@ -88,6 +88,7 @@ const CharityList = () => {
 
     return (
         <IonContent>
+            { console.log('Yup in charity list')}
             {organizations.map((organization) => (
                 <CharityItem
                     key={organization.charityID}
