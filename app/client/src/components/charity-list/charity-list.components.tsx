@@ -12,26 +12,27 @@ const CharityList = () => {
         setOrganizations([
             {
                 charityName: 'Red Cross',
-                tags: ['Food', 'Clothes', 'Spidey'],
+                tags: ['Food', 'Clothes', 'Giving'],
                 charityID: 1,
                 charityImageURL: 'helpTheRedCross.jpg',
                 charityShortDescription: 'This is the red cross, you know it',
                 charityLongDescription: 'This is also the redcross, you better know it lmao',
             },
             {
-                charityName: 'Roman',
-                tags: ['Weapon', 'Crossbow', 'Spidey'],
+                charityName: 'ChildFund Australia',
+                tags: ['Child', 'Family'],
                 charityID: 2,
                 charityImageURL: 'helpTheRedCross.jpg',
-                charityShortDescription: 'Roman, proof that it works',
+                charityShortDescription: 'Information about the ChildFund Australia can be found',
                 charityLongDescription: 'This is also the redcross, you better know it lmao',
             },
             {
-                charityName: 'Greek',
-                tags: ['Weapon', 'Crossbow', 'Spidey'],
+                charityName: 'Bill Gates Charity',
+                tags: ['Technology', 'Water'],
                 charityID: 3,
                 charityImageURL: 'helpTheRedCross.jpg',
-                charityShortDescription: 'Greek, proof that it works',
+                charityShortDescription:
+                    'Bill Gates is a successful tech person, but you probably know that, but he has a big charity.',
                 charityLongDescription: 'This is also the redcross, you better know it lmao',
             },
             {
