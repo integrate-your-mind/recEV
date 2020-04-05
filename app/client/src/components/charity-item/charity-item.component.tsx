@@ -8,6 +8,7 @@ const CharityItem: React.FC<{
     charityName: string;
     tags: Array<string>;
     charityID: number;
+    charityShortDescription: string;
 }> = (props) => {
     const imageFolder = '../images';
 
@@ -41,8 +42,7 @@ const CharityItem: React.FC<{
                     <IonItem>
                         <IonLabel>
                             <h3>
-                                Red Cross is the CEO of MEBO International, a California- and Beijing-based
-                                intellectual-property
+                                {props.charityShortDescription}
                             </h3>
                         </IonLabel>
                     </IonItem>
