@@ -33,9 +33,17 @@ const Donate = () => {
             charityLongDescription: 'This is also the redcross, you better know it lmao'
         },
         {
+            charityName: 'Greek',
+            tags: ['Weapon', 'Crossbow', 'Spidey'],
+            charityID: 3,
+            charityImageURL: 'helpTheRedCross.jpg',
+            charityShortDescription: 'Greek, proof that it works',
+            charityLongDescription: 'This is also the redcross, you better know it lmao'
+        },
+        {
             charityName: 'Roman',
             tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
+            charityID: 4,
             charityImageURL: 'helpTheRedCross.jpg',
             charityShortDescription: 'Roman, proof that it works',
             charityLongDescription: 'This is also the redcross, you better know it lmao'
@@ -43,7 +51,7 @@ const Donate = () => {
         {
             charityName: 'Roman',
             tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
+            charityID: 5,
             charityImageURL: 'helpTheRedCross.jpg',
             charityShortDescription: 'Roman, proof that it works',
             charityLongDescription: 'This is also the redcross, you better know it lmao'
@@ -51,7 +59,7 @@ const Donate = () => {
         {
             charityName: 'Roman',
             tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
+            charityID: 6,
             charityImageURL: 'helpTheRedCross.jpg',
             charityShortDescription: 'Roman, proof that it works',
             charityLongDescription: 'This is also the redcross, you better know it lmao'
@@ -59,7 +67,7 @@ const Donate = () => {
         {
             charityName: 'Roman',
             tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
+            charityID: 7,
             charityImageURL: 'helpTheRedCross.jpg',
             charityShortDescription: 'Roman, proof that it works',
             charityLongDescription: 'This is also the redcross, you better know it lmao'
@@ -67,7 +75,7 @@ const Donate = () => {
         {
             charityName: 'Roman',
             tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
+            charityID: 8,
             charityImageURL: 'helpTheRedCross.jpg',
             charityShortDescription: 'Roman, proof that it works',
             charityLongDescription: 'This is also the redcross, you better know it lmao'
@@ -75,15 +83,7 @@ const Donate = () => {
         {
             charityName: 'Roman',
             tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
-            charityImageURL: 'helpTheRedCross.jpg',
-            charityShortDescription: 'Roman, proof that it works',
-            charityLongDescription: 'This is also the redcross, you better know it lmao'
-        },
-        {
-            charityName: 'Roman',
-            tags: ['Weapon', 'Crossbow', 'Spidey'],
-            charityID: 2,
+            charityID: 9,
             charityImageURL: 'helpTheRedCross.jpg',
             charityShortDescription: 'Roman, proof that it works',
             charityLongDescription: 'This is also the redcross, you better know it lmao'
@@ -105,7 +105,7 @@ const Donate = () => {
                     </IonToolbar>
                 </IonHeader>
                 {organizations.map(organization => 
-                    <CharityItem charityName = {organization.charityName} tags = {organization.tags} charityID = {organization.charityID} charityShortDescription = {organization.charityShortDescription}/>
+                    <CharityItem key = {organization.charityID} charityName = {organization.charityName} tags = {organization.tags} charityID = {organization.charityID} charityShortDescription = {organization.charityShortDescription}/>
                 )}
                 {/* <CharityItem charityName="Red Cross" tags={redCrossTags} charityID={1} /> */}
 
