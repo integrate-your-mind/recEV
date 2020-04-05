@@ -1,36 +1,36 @@
-import { Field, InterfaceType, ID } from 'type-graphql';
+import { Field, ObjectType} from 'type-graphql';
 
-@InterfaceType()
+@ObjectType()
 export abstract class Charity {
     // @Field((type) => ID)
     // id: string;
 
     @Field()
-    charityLegalName: string;
+    public charityLegalName: string;
 
     @Field({ nullable: true })
     imageURL?: string;
 
     @Field()
-    smallDescription: string;
+    smallDescription!: string;
 
     @Field({ nullable: true })
     longDescription?: string;
 
     @Field()
-    addressLine1: string;
+    addressLine1!: string;
 
     @Field()
-    townCity: string;
+    townCity!: string;
 
     @Field()
-    state: string;
+    state!: string;
 
     @Field()
-    country: string;
+    country!: string;
 
     @Field()
-    charityWebsite: string;
+    charityWebsite!: string;
 
     @Field({ nullable: true })
     health?: boolean;

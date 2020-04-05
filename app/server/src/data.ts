@@ -1,9 +1,27 @@
-import { ICharity } from '../charity-data/CharityData';
-import { AUCharityProperties } from '../../schemas/countries/AUCharityProperties';
-
-export interface IAustralianCharityProperties extends ICharity {
+interface Charity {
+    charityLegalName: string;
+    imageURL?: string;
+    smallDescription: string | any;
+    longDescription?: string | any;
+    addressLine1: string;
+    townCity?: string;
+    state: string;
+    homelessness?: boolean;
+    health?: boolean;
+    country: string;
+    charityWebsite: string;
+    education?: boolean;
+    chronicIllness?: boolean;
+    disabilities?: boolean;
+    unemployment?: boolean;
+    veterans?: boolean;
+    postcode: number;
+  }
+  
+  
+  export interface CharityData extends Charity {
     abn: number;
-    territoryNSW:boolean;
+    territoryNSW: boolean;
     territoryACT: boolean;
     territoryNT: boolean;
     territoryQLD: boolean;
@@ -11,14 +29,14 @@ export interface IAustralianCharityProperties extends ICharity {
     territoryTAS: boolean;
     territoryVIC: boolean;
     territoryWA: boolean;
-}
-
-export const australian_charities: AustralianCharityProperties[] = [
+  }
+  
+  export const australian_charities: CharityData[] = [
     //TODO: Put mongodb data here
     {
         abn: 84001797511,
         charityLegalName: 'Access Industries For The Disabled Ltd',
-       imageURL: 'http://www.accessindustries.com.au/wp-content/uploads/2016/04/New_Access_logo.png',
+        imageURL: 'http://www.accessindustries.com.au/wp-content/uploads/2016/04/New_Access_logo.png',
         smallDescription:
             'We are a registered charitable organization providing employment services\u00a0for people with disabilities, otherwise known as an Australian Disability Enterprise (ADE).',
         longDescription:
@@ -48,7 +66,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 99804795393,
         charityLegalName: 'Arts Project Australia Inc',
-       imageURL: 'https://www.artsproject.org.au/',
+        imageURL: 'https://www.artsproject.org.au/',
         smallDescription:
             'We are a creative social enterprise that supports artists with intellectual disabilities, promotes their work and advocates for their inclusion in contemporary art practice. ',
         longDescription:
@@ -78,7 +96,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 91530248271,
         charityLegalName: 'Blue Mountains Food Services Inc',
-       imageURL:
+        imageURL:
             'https://static.wixstatic.com/media/cf0c32_926b273fa50c4cd9bbfc2e01e3edaa70~mv2.png/v1/fill/w_348,h_75,al_c,q_85,usm_0.66_1.00_0.01/cf0c32_926b273fa50c4cd9bbfc2e01e3edaa70~mv2.webp',
         smallDescription:
             "Whether it's nutritious meals delivered to your home, a friendly chat at one of our many community restaurants, or assistance with daily activities from one of our lovely volunteers, we're all about helping you to remain independent and socially connected in your community.",
@@ -109,7 +127,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 63201477650,
         charityLegalName: 'Boneham Aged Care Services Inc',
-       imageURL: 'https://www.boneham.org/wp-content/uploads/2013/09/boneham-logo.jpg',
+        imageURL: 'https://www.boneham.org/wp-content/uploads/2013/09/boneham-logo.jpg',
         smallDescription:
             'Delivering excellence in aged care services that meet or exceed the needs and expectations of our residents and clients.',
         longDescription:
@@ -139,7 +157,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 20061257725,
         charityLegalName: 'Carers Queensland Limited',
-       imageURL: 'https://carersqld.com.au/wp-content/themes/carersqld/images/logo.png',
+        imageURL: 'https://carersqld.com.au/wp-content/themes/carersqld/images/logo.png',
         smallDescription:
             'With one in every eight Australians caring for a family member or friend, Carers Queensland is committed to providing specialised carer, aged, and disability support services.',
         longDescription:
@@ -169,7 +187,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 12345691733,
         charityLegalName: 'CFN Association Inc.',
-       imageURL: 'https://cfn.org.au/wp-content/uploads/2018/09/cropped-CFN-Logo-b.png',
+        imageURL: 'https://cfn.org.au/wp-content/uploads/2018/09/cropped-CFN-Logo-b.png',
         smallDescription:
             'We have a long history providing disability services within this region, and working with people with disability to  their individual goals, with support from us, their families and support networks along thereach way.',
         longDescription:
@@ -199,7 +217,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 93056378299,
         charityLegalName: 'Connectability Australia Limited',
-       imageURL: 'https://www.connectability.org.au/wp-content/uploads/2019/03/connect-ability-logo_04.png',
+        imageURL: 'https://www.connectability.org.au/wp-content/uploads/2019/03/connect-ability-logo_04.png',
         smallDescription:
             'ConnectAbility Australia was founded in 1992 by a group of community members and families to meet the needs of people with significant disabilities to provide opportunities to access community based resources, aged care support, facilities, disability support and family counselling.',
         longDescription:
@@ -229,7 +247,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 71168476100,
         charityLegalName: 'Disability Matters Inc',
-       imageURL: 'https://disabilitymatters.org.au/images/logo.png',
+        imageURL: 'https://disabilitymatters.org.au/images/logo.png',
         smallDescription:
             'Disability Matters is a local, leading disability services provider with over 25 years\u2019 experience in supporting people with a disability in the Atherton Tablelands region.',
         longDescription:
@@ -259,7 +277,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 83058123729,
         charityLegalName: 'Fairhaven Services Ltd',
-       imageURL: 'https://www.fairhaven.org.au/wp-content/uploads/2018/03/fairhaven_logo.png',
+        imageURL: 'https://www.fairhaven.org.au/wp-content/uploads/2018/03/fairhaven_logo.png',
         smallDescription:
             'We are a social enterprise established to ensure that people living with disability on the Central Coast live the lives that they aspire to, with a commitment to providing community participation, social skills, employment opportunities, accommodation and living supports.',
         longDescription:
@@ -289,7 +307,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 70712994485,
         charityLegalName: 'Lismore Home Modification Service Inc',
-       imageURL:
+        imageURL:
             'https://static.wixstatic.com/media/3f85de_8a12e259d8344d489bc1e743d2111ab3~mv2.jpg/v1/fill/w_225,h_128,al_c,q_80,usm_0.66_1.00_0.01/3f85de_8a12e259d8344d489bc1e743d2111ab3~mv2.webp',
         smallDescription:
             'Lismore Home Modification Service Inc is a trusted, long established organization, serving the local Lismore community and surrounding villages since 1990.\n\n \n\nOur team of staff, Builders, Tradespeople and Occupational Therapists are here to ensure your home is modified and maintained to ensure your continued safety and wellbeing.',
@@ -320,7 +338,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 79817156681,
         charityLegalName: 'Mandurah Retirement Village',
-       imageURL: 'https://www.coolibah.org.au/wp-content/uploads/2018/06/cc-nav-logo2x.png',
+        imageURL: 'https://www.coolibah.org.au/wp-content/uploads/2018/06/cc-nav-logo2x.png',
         smallDescription:
             'To improve the lives of older people and those needing additional support in the Peel region, through the provision of high quality services that promote inclusion, engagement and independence',
         longDescription:
@@ -350,7 +368,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 45071386957,
         charityLegalName: 'Midway Community Care',
-       imageURL: 'http://www.midwaycc.com.au/wp-content/uploads/midwaycclogobanner-1.png',
+        imageURL: 'http://www.midwaycc.com.au/wp-content/uploads/midwaycclogobanner-1.png',
         smallDescription:
             'Midway supports people with disability to live empowered fulfilling lives in an inclusive Peel community.',
         longDescription:
@@ -380,7 +398,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 34210703350,
         charityLegalName: 'Mirridong Services Inc',
-       imageURL:
+        imageURL:
             'https://www.mirridong.com.au/uploads/1/2/2/0/122030303/published/ms-horizlogo-cmyk-small-for-documents.jpg?1543960362',
         smallDescription:
             'Mirridong Services provides a diverse range of quality disability support, learning and community options which are based on best practice. ',
@@ -410,7 +428,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 72733048258,
         charityLegalName: 'Mosaic Support Services (Tas) inc',
-       imageURL:
+        imageURL:
             'https://static1.squarespace.com/static/5c5ba8b7d74562c7485a456c/t/5d2e71596b0e7300010a462e/1585876267236/?format=1500w',
         smallDescription:
             'At Mosaic Support Services we live our Mission of enriching and improving the lives of people with a disability and their families by providing a range of quality, tailored programs. These include a myriad of Community Access, Life Skills and Training Programs. ',
@@ -441,7 +459,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 94253356513,
         charityLegalName: 'Nova Employment Limited',
-       imageURL: 'https://www.novaemployment.com.au/images/logoNovaFront3.jpg',
+        imageURL: 'https://www.novaemployment.com.au/images/logoNovaFront3.jpg',
         smallDescription:
             'NOVA is a Competitive Integrated Employment (CIE) Program that offers specialist job seeking assistance and post placement support. We find jobs in the general community, at award wage. ',
         longDescription:
@@ -471,7 +489,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 92154673793,
         charityLegalName: 'Primary and Community Care Services Limited',
-       imageURL: 'https://pccs.org.au/wp-content/uploads/2020/02/PCCS-accentlogo.png',
+        imageURL: 'https://pccs.org.au/wp-content/uploads/2020/02/PCCS-accentlogo.png',
         smallDescription:
             'Primary & Community Care Services (PCCS) is a local health organization working to make it easier for people to access the health and community services they need. It\u2019s about creating a smoother journey for everyone, including the people who deliver health and community services.',
         longDescription:
@@ -501,7 +519,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 82184838127,
         charityLegalName: 'The Central Highlands And Western Qld Family Support Association',
-       imageURL: 'https://yumbabimbi.com.au/wp-content/uploads/2017/12/logo-trans.png',
+        imageURL: 'https://yumbabimbi.com.au/wp-content/uploads/2017/12/logo-trans.png',
         smallDescription:
             'Our mission is to strengthen choice and life opportunities in an open and inclusive community.',
         longDescription:
@@ -531,7 +549,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 75002556872,
         charityLegalName: 'The Mary Potter Nursing Home And The Ethel Forrest Day Care Centre Pty Limited',
-       imageURL:
+        imageURL:
             'https://static1.squarespace.com/static/5a08c5f549fc2b1d7ba6d776/t/5a0a38ea9140b7f3b7eaf5ca/1585893080860/?format=1500w',
         smallDescription: true,
         longDescription:
@@ -561,7 +579,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 45639506303,
         charityLegalName: 'Townsville Independence Program For Adult Community Living',
-       imageURL: 'http://tipacl.com.au/wp-content/uploads/2018/11/TIPACL_WP_Banner.png',
+        imageURL: 'http://tipacl.com.au/wp-content/uploads/2018/11/TIPACL_WP_Banner.png',
         smallDescription:
             'TIPACL aims to assist people to meet the challenges of everyday life by providing excellence in service. We are dedicated to the highest quality of service delivered with a sense of warmth, friendliness, individual pride and spirit.',
         longDescription:
@@ -591,7 +609,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 38129529040,
         charityLegalName: 'Transcare Hunter Limited',
-       imageURL: 'https://www.transcare.org.au/wp-content/uploads/2015/04/transcare-web-logo.png',
+        imageURL: 'https://www.transcare.org.au/wp-content/uploads/2015/04/transcare-web-logo.png',
         smallDescription:
             'We strive to provide quality community transport, in-home assistance and community wellbeing services for our clients across the Upper Hunter.',
         longDescription:
@@ -621,7 +639,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 38096625231,
         charityLegalName: 'Australian Bone Marrow Donor Registry',
-       imageURL: 'https://www.abmdr.org.au/wp-content/uploads/2016/02/logo-1.jpg',
+        imageURL: 'https://www.abmdr.org.au/wp-content/uploads/2016/02/logo-1.jpg',
         smallDescription:
             'We are the only organization responsible for the recruitment of volunteer bone marrow/blood stem cell donors and the administrative management of the National Cord Blood Collection Network of public cord blood banks in Australia.',
         longDescription:
@@ -651,7 +669,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 64141539442,
         charityLegalName: 'Baptist Care Northern Territory',
-       imageURL: 'https://bcnt.org.au/wp-content/uploads/2017/07/logo-white.png',
+        imageURL: 'https://bcnt.org.au/wp-content/uploads/2017/07/logo-white.png',
         smallDescription:
             "Baptist Care NT exists to express God's love and we aim to do this by meeting people's needs, whether they be social, emotional, physical or spiritual.",
         longDescription:
@@ -681,7 +699,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 36140829394,
         charityLegalName: 'Byron Aged Care Limited',
-       imageURL: 'http://byronagedcare.com.au/wp-content/uploads/BYRON-AGED-CARE-LOGO-jpeg.jpg',
+        imageURL: 'http://byronagedcare.com.au/wp-content/uploads/BYRON-AGED-CARE-LOGO-jpeg.jpg',
         smallDescription:
             'Byron Aged Care is a community based not for profit organization governed by a voluntary Board of Directors. The day to day running of the Home is entrusted to the Director of Care.',
         longDescription:
@@ -711,7 +729,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 15190821561,
         charityLegalName: 'Cancer Council Of Western Australia (Inc)',
-       imageURL: 'https://www.cancerwa.asn.au/art/CCWA-logo-digital.png',
+        imageURL: 'https://www.cancerwa.asn.au/art/CCWA-logo-digital.png',
         smallDescription:
             'Cancer Council Western Australia is WA\u2019s leading cancer charity working across every aspect of every cancer. Currently, one in two Australians will be diagnosed with cancer in their lifetime. In WA alone, there are almost 12,000 new cases of cancer diagnosed each year.',
         longDescription:
@@ -741,7 +759,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 67110865560,
         charityLegalName: 'Cittamani Hospice Service Limited',
-       imageURL: 'https://www.cittamanihospice.com.au/sunshine/wp-content/uploads/2016/07/cittamani-logo-big.png',
+        imageURL: 'https://www.cittamanihospice.com.au/sunshine/wp-content/uploads/2016/07/cittamani-logo-big.png',
         smallDescription:
             'The staff and volunteers of Cittamani support people at the end of life. They can assist you to live out your life in the way you wish and to remain at home in comfort knowing you will have 24/7 support available at the end of the phone.',
         longDescription:
@@ -771,7 +789,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 62740350704,
         charityLegalName: 'Cure For MND Foundation',
-       imageURL: 'https://fightmnd.org.au/wp-content/uploads/2018/05/logo.png',
+        imageURL: 'https://fightmnd.org.au/wp-content/uploads/2018/05/logo.png',
         smallDescription:
             'Founded in 2014, FightMND was established with the purpose of finding effective treatments and ultimately a cure for Motor Neurone Disease.',
         longDescription:
@@ -801,7 +819,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 89304710474,
         charityLegalName: 'FareShare Australia Incorporated',
-       imageURL: 'https://www.fareshare.net.au/wp-content/uploads/FareShareLogo-LandscapeSmall.png',
+        imageURL: 'https://www.fareshare.net.au/wp-content/uploads/FareShareLogo-LandscapeSmall.png',
         smallDescription:
             'FareShare rescues food that would otherwise go to waste and cooks it into free nutritious meals for people in need. An estimated five million Australians experienced food insecurity last year while food waste costs our economy an estimated $20 billion.',
         longDescription:
@@ -831,7 +849,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 40002286553,
         charityLegalName: 'JDRF Australia',
-       imageURL:
+        imageURL:
             'https://jdrf.org.au/wp-content/uploads/2019/03/h_lNxVXLqrDqb2kyrixW3lMmUl7n-aBRzJUzyvzD7_8ZeFWFSRrSQ8LCl2i6ted1Sfmt_lDQLryoTFrXHQNBp1lay7Bdxjf2PbcikoFkvwYkvNtBJXVHe1LXmJmetPFG.png',
         smallDescription:
             'JDRF has transformed the understanding of Type 1 Diabetes (T1D). We have been part of every breakthrough in T1D care in the last 40 years. We drive innovation, demand action and stand with everyone facing life with T1D. We know research is the key to destroy T1D.',
@@ -862,7 +880,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 89094189465,
         charityLegalName: 'Jobs Queensland Limited',
-       imageURL: 'https://jobsqld.org.au/wp-content/uploads/2017/09/phone-icon.png',
+        imageURL: 'https://jobsqld.org.au/wp-content/uploads/2017/09/phone-icon.png',
         smallDescription:
             'Training and programs to enhance the skills and employment opportunities of disadvantaged job seekers. Preparing parents to enter the workforce and placing them into employment. Provide employment opportunities for long term unemployed and disadvantaged groups.',
         longDescription:
@@ -892,7 +910,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 33107782196,
         charityLegalName: 'Oz Harvest Limited',
-       imageURL: 'https://www.underconsideration.com/brandnew/archives/ozharvest_logo_detail.gif',
+        imageURL: 'https://www.underconsideration.com/brandnew/archives/ozharvest_logo_detail.gif',
         smallDescription:
             'OzHarvest is Australia\u2019s leading food rescue organization, collecting quality excess food from commercial outlets and delivering it directly to more than 1300 charities supporting people in need across the country.',
         longDescription:
@@ -922,7 +940,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 89010040914,
         charityLegalName: 'Queensland Positive People Inc.',
-       imageURL: 'https://www.qpp.org.au/wp-content/themes/qpp/images/qpp-logo.png',
+        imageURL: 'https://www.qpp.org.au/wp-content/themes/qpp/images/qpp-logo.png',
         smallDescription:
             'Queensland Positive People (QPP) is a peer-based advocacy organization which is committed to actively promoting self-determination and empowerment for all people living with HIV (PLHIV) throughout Queensland.',
         longDescription:
@@ -952,7 +970,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 53046843443,
         charityLegalName: 'Reclink Australia',
-       imageURL: 'https://reclink.org/sites/all/themes/custom/reclink_2018/logo.png',
+        imageURL: 'https://reclink.org/sites/all/themes/custom/reclink_2018/logo.png',
         smallDescription:
             'Reclink Australia provides evidence-based sport and art programs to disadvantaged Australians to create socially inclusive, life-changing opportunities.',
         longDescription:
@@ -982,8 +1000,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 65228690068,
         charityLegalName: 'Resolve SBB Trust',
-       imageURL:
-            'https://www.socialventures.com.au/wp-content/themes/sva/assets/img/brand-refresh/sva-logo-full.svg',
+        imageURL: 'https://www.socialventures.com.au/wp-content/themes/sva/assets/img/brand-refresh/sva-logo-full.svg',
         smallDescription:
             'The Resolve Social Benefit Bond is Australia\u2019s first social impact investment aimed at improving mental health outcomes.',
         longDescription:
@@ -1013,7 +1030,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 84140233790,
         charityLegalName: 'Victorian Comprehensive Cancer Centre Ltd',
-       imageURL: 'https://www.viccompcancerctr.org/resources/themes/vccc/dist/img/logo.jpg',
+        imageURL: 'https://www.viccompcancerctr.org/resources/themes/vccc/dist/img/logo.jpg',
         smallDescription:
             'Together, the VCCC alliance partners represent a critical mass of expertise and resources. Our mission is to turn the potential of this into best possible outcomes for Victorian cancer patients.',
         longDescription:
@@ -1043,7 +1060,7 @@ export const australian_charities: AustralianCharityProperties[] = [
     {
         abn: 60433691542,
         charityLegalName: 'Vietnam veterans Keith Payne V C Hostel Ltd',
-       imageURL: 'https://vietvets.com.au/wp-content/uploads/2019/07/vv-logo-600.jpg',
+        imageURL: 'https://vietvets.com.au/wp-content/uploads/2019/07/vv-logo-600.jpg',
         smallDescription:
             'Vietnam veterans Keith Payne VC Hostel is a residential aged care community, providing excellent quality of life for our residents. ',
         longDescription:
@@ -1070,4 +1087,5 @@ export const australian_charities: AustralianCharityProperties[] = [
         unemployment: true,
         veterans: true,
     },
-];
+  ];
+  
