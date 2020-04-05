@@ -1,0 +1,5 @@
+/node_modules/
+index.ts
+src/schemas/
+src/resolvers/
+data.ts
