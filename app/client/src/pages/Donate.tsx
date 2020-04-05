@@ -4,7 +4,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import './Donate.css';
 import CharityItem from '../components/charity-item/charity-item.component';
 
-const Donate: React.FC = () => {
+const Donate = () => {
     const redCrossTags: string[] = ['Food', 'Clothes', 'Spidey'];
 
     return (
@@ -22,9 +22,7 @@ const Donate: React.FC = () => {
                 </IonHeader>
                 {/* <ExploreContainer name="Tab 2 page" /> */}
                 <CharityItem charityName="Red Cross" tags={redCrossTags} charityID={1} />
-                {/* <CharityItem charityName = 'Mar' />
-        <CharityItem charityName = 'Kevin' />
-        <CharityItem charityName = 'Superman' /> */}
+
             </IonContent>
         </IonPage>
     );
