@@ -37,10 +37,10 @@ const App: React.FC = () => (
                     <Route path="/" render={() => <Redirect to="/profile" />} exact={true} />
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
-                <IonTabButton tab="profile" href="/profile">
+                    <IonTabButton tab="profile" href="/profile">
                         <IonIcon icon={personCircleOutline} />
                         <IonLabel>Person</IonLabel>
-                    </IonTabButton> 
+                    </IonTabButton>
                     <IonTabButton tab="donate" href="/donate">
                         <IonIcon icon={walletOutline} />
                         <IonLabel>Donate</IonLabel>
