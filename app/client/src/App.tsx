@@ -37,13 +37,13 @@ const client = new ApolloClient({
     uri: 'SET SOME URI HERE PLEASE TO THE END POINT',
 });
 
-client
-    .query({
-        query: gql`
-     BUILD GQL QUERY HERE FROM graphiQL
-    `,
-    })
-    .then((result) => console.log(result));
+// client
+//     .query({
+//         query: gql`
+//      BUILD GQL QUERY HERE FROM graphiQL
+//     `,
+//     })
+//     .then((result) => console.log(result));
 
 const App: React.FC = () => (
     <ApolloProvider client={client}>
