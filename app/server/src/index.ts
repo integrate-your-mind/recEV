@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
 import { GraphQLServer } from 'graphql-yoga';
 import 'reflect-metadata';
 import { buildSchema } from 'type-graphql';

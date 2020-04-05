@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
 interface Charity {
     charityLegalName: string;
     imageURL?: string;
