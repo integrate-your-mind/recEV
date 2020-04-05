@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
 import { Int, Field, ObjectType } from 'type-graphql';
 import { Charity } from './Charity';
 

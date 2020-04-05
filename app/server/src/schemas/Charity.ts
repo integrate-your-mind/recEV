@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
 import { Field, ObjectType} from 'type-graphql';
 
 @ObjectType()
@@ -6,7 +7,7 @@ export abstract class Charity {
     // id: string;
 
     @Field()
-    public charityLegalName: string;
+    charityLegalName: string;
 
     @Field({ nullable: true })
     imageURL?: string;

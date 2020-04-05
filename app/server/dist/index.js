@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint no-use-before-define: 0 */ // --> OFF
 const graphql_yoga_1 = require("graphql-yoga");
 require("reflect-metadata");
 const type_graphql_1 = require("type-graphql");

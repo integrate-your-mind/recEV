@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint no-use-before-define: 0 */ // --> OFF
 const type_graphql_1 = require("type-graphql");
 const data_1 = require("../data");
 const AUCharity_1 = __importDefault(require("../schemas/AUCharity"));

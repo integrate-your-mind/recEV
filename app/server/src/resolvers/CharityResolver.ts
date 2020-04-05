@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
 import { Query, Resolver } from 'type-graphql';
 import { CharityData, australian_charities } from '../data';
 import AUCharity from '../schemas/AUCharity';
