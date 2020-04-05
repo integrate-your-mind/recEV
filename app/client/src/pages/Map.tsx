@@ -21,7 +21,7 @@ const Tab3: React.FC = () => {
                     </IonToolbar>
                 </IonHeader>
                 <img src={mapImage} />
-                <IonButton  color="primary" href="/profile">Profile</IonButton>
+                <IonButton color="primary" href="/profile">Profile</IonButton>
             </IonContent>
         </IonPage>
     );
