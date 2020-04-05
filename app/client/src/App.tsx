@@ -2,10 +2,11 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { personCircleOutline, walletOutline, mapOutline, person } from 'ionicons/icons';
+import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
 import Profile from './pages/Profile';
 import Donate from './pages/Donate';
 import Map from './pages/Map';
+import CharityModal from './pages/CharityModal';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,7 +36,8 @@ const App: React.FC = () => (
                     <Route path="/donate" component={Donate} exact={true} />
                     <Route path="/map" component={Map} />
                     <Route path="/" render={() => <Redirect to="/profile" />} exact={true} />
-                </IonRouterOutlet>
+                    <Route path="/charity/:id" component = {CharityModal} />
+                </IonRouterOutlet> 
                 <IonTabBar slot="bottom">
                     <IonTabButton tab="profile" href="/profile">
                         <IonIcon icon={personCircleOutline} />

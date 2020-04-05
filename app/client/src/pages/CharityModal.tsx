@@ -1,40 +1,25 @@
 import React from 'react';
+import { IonContent, IonHeader, IonPage } from '@ionic/react';
 
-import './CharityModal.css';
+import { RouteComponentProps } from 'react-router';
 
-import { ActionSheetButton } from '@ionic/core';
-import {
-    IonActionSheet,
-    IonChip,
-    IonIcon,
-    IonHeader,
-    IonLabel,
-    IonToolbar,
-    IonButtons,
-    IonContent,
-    IonButton,
-    IonBackButton,
-    IonPage,
-} from '@ionic/react';
-import {
-    callOutline,
-    callSharp,
-    logoTwitter,
-    logoGithub,
-    logoInstagram,
-    shareOutline,
-    shareSharp,
-} from 'ionicons/icons';
+interface CharityIdParams {
+    id: string
+}
 
-const CharityModal: React.FC = (props) => {
+const CharityModal = ({ match }: RouteComponentProps<CharityIdParams>) => {
+    const id = match.params.id;
+
     return (
-        <IonPage>
-            <IonContent>
-                <IonHeader></IonHeader>
-            </IonContent>
-            >
-        </IonPage>
+      <IonPage>
+          <IonHeader>
+              The charity
+          </IonHeader>
+          <IonContent>
+              Charity ID: {id}
+          </IonContent>
+      </IonPage>  
     );
-};
+}
 
 export default CharityModal;
