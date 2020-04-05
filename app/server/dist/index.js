@@ -13,9 +13,7 @@ async function bootstrap() {
         resolvers: [CharityResolver_1.default],
         emitSchemaFile: true,
     });
-    const server = new graphql_yoga_1.GraphQLServer({
-        schema,
-    });
+    const server = new graphql_yoga_1.GraphQLServer({ schema });
     server.start(() => console.log('Server is running on http://localhost:4000'));
 }
 bootstrap();
