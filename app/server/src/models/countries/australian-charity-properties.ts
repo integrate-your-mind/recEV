@@ -1,7 +1,7 @@
 import { Int, Field } from 'type-graphql';
 import { Charity } from '../charity.interface';
 
-export class Australia extends Charity {
+export class AustralianCharityProperties extends Charity {
     @Field((type) => Int)
     abn: number;
 
