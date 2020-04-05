@@ -21,7 +21,7 @@ type AUCharity {
   disabilities: Boolean
   unemployment: Boolean
   veterans: Boolean
-  abn: Int!
+  abn: Float!
   territoryNSW: Boolean!
   territoryACT: Boolean!
   territoryNT: Boolean!
