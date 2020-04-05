@@ -41,7 +41,7 @@ const App: React.FC = () => (
                 <IonTabBar slot="bottom">
                     <IonTabButton tab="profile" href="/profile">
                         <IonIcon icon={personCircleOutline} />
-                        <IonLabel>Person</IonLabel>
+                        <IonLabel>Profile</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab="donate" href="/donate">
                         <IonIcon icon={walletOutline} />

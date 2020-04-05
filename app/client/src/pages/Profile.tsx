@@ -26,7 +26,6 @@ const Profile: React.FC = () => {
 
     const setStatusHandler = (selectedType: 'Login' | 'Register') => {
         setStatus(selectedType);
-        console.log('selectedType', selectedType);
     };
 
     const submitHandler = () => {
