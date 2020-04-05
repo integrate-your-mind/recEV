@@ -1,19 +1,19 @@
 export interface Charity {
     charityLegalName: string;
-    imageURL: string;
+    imageURL?: string;
     smallDescription: string;
-    longDescription: string;
+    longDescription?: string;
     addressLine1: string;
-    townCity: string;
+    townCity?: string;
     state: string;
-    homelessness: string;
-    health: string;
+    homelessness?: string;
+    health?: string;
     country: string;
     charityWebsite: string;
-    education: boolean;
-    chronicIllness: boolean;
-    disabilities: boolean;
-    unemployment: boolean;
-    veterans: boolean;
+    education?: boolean;
+    chronicIllness?: boolean;
+    disabilities?: boolean;
+    unemployment?: boolean;
+    veterans?: boolean;
     postcode: number;
 }
