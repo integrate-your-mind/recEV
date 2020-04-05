@@ -27,7 +27,26 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+// or you can use `import gql from 'graphql-tag';` instead
+
+const client = new ApolloClient({
+    //TODO: Setup uri to the gql endpoint
+    uri: 'SET SOME URI HERE PLEASE TO THE END POINT',
+});
+
+client
+    .query({
+        query: gql`
+     BUILD GQL QUERY HERE FROM graphiQL
+    `,
+    })
+    .then((result) => console.log(result));
+
 const App: React.FC = () => (
+    <ApolloProvider client={client}>
     <IonApp>
         <IonReactRouter>
             <IonTabs>
@@ -36,8 +55,8 @@ const App: React.FC = () => (
                     <Route path="/donate" component={Donate} exact={true} />
                     <Route path="/map" component={Map} />
                     <Route path="/" render={() => <Redirect to="/profile" />} exact={true} />
-                    <Route path="/charity/:id" component = {CharityModal} />
-                </IonRouterOutlet> 
+                    <Route path="/charity/:id" component={CharityModal} />
+                </IonRouterOutlet>
                 <IonTabBar slot="bottom">
                     <IonTabButton tab="profile" href="/profile">
                         <IonIcon icon={personCircleOutline} />
@@ -55,6 +74,7 @@ const App: React.FC = () => (
             </IonTabs>
         </IonReactRouter>
     </IonApp>
+    </ApolloProvider>
 );
 
 export default App;
