@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/* eslint no-use-before-define: 0 */ // --> OFF
+/*eslint no-useless-constructor: 2*/
 const type_graphql_1 = require("type-graphql");
 let Charity = class Charity {
 };
@@ -58,7 +58,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Charity.prototype, "homelessness", void 0);
 __decorate([
-    type_graphql_1.Field(),
+    type_graphql_1.Field({ nullable: true }),
     __metadata("design:type", Number)
 ], Charity.prototype, "postcode", void 0);
 __decorate([

@@ -1,4 +1,4 @@
-/* eslint no-use-before-define: 0 */  // --> OFF
+/* eslint no-use-before-define: 0 */ // --> OFF
 import { GraphQLServer } from 'graphql-yoga';
 import 'reflect-metadata';
 import { buildSchema } from 'type-graphql';
@@ -10,9 +10,7 @@ async function bootstrap() {
         emitSchemaFile: true,
     });
 
-    const server = new GraphQLServer({
-        schema,
-    });
+    const server = new GraphQLServer({ schema });
 
     server.start(() => console.log('Server is running on http://localhost:4000'));
 }

@@ -1,5 +1,7 @@
-/node_modules/
-index.ts
-src/schemas/
-src/resolvers/
-data.ts
+!.eslintrc.js
+/build/**
+/coverage/**
+/docs/**
+/src/schemas/**
+/src/resolvers/**
+/src/data.ts
