@@ -1,13 +1,14 @@
-/* eslint no-use-before-define: 0 */  // --> OFF
-import { Field, ObjectType} from 'type-graphql';
+/*eslint no-useless-constructor: 2*/
+import { Field, ObjectType } from 'type-graphql';
+import { stringify } from 'querystring';
 
 @ObjectType()
 export abstract class Charity {
     // @Field((type) => ID)
     // id: string;
-
+    
     @Field()
-    charityLegalName: string;
+    charityLegalName!: string;  
 
     @Field({ nullable: true })
     imageURL?: string;
@@ -39,8 +40,8 @@ export abstract class Charity {
     @Field({ nullable: true })
     homelessness?: boolean;
 
-    @Field()
-    postcode: number;
+    @Field({ nullable: true })
+    postcode!: number;  
 
     @Field({ nullable: true })
     education?: boolean;
