@@ -1,4 +1,4 @@
-export interface Charity {
+export interface ICharity {
     charityLegalName: string;
     imageURL?: string;
     smallDescription: string;
