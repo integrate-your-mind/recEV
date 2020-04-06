@@ -26,6 +26,7 @@
         "typescript": "3.8.3"
     },
     "dependencies": {
+        "@typegoose/typegoose": "^6.4.0",
         "@types/ws": "7.2.3",
         "graphql": "14.6.0",
         "graphql-yoga": "1.18.3",
