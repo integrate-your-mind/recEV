@@ -1,4 +1,4 @@
-/* eslint no-use-before-define: 0 */  // --> OFF
+/* eslint no-use-before-define: 0 */ // --> OFF
 interface Charity {
     charityLegalName: string;
     imageURL?: string;
@@ -17,10 +17,9 @@ interface Charity {
     unemployment?: boolean;
     veterans?: boolean;
     postcode: number;
-  }
-  
-  
-  export interface CharityData extends Charity {
+}
+
+export interface CharityData extends Charity {
     abn: number;
     territoryNSW: boolean;
     territoryACT: boolean;
@@ -30,9 +29,9 @@ interface Charity {
     territoryTAS: boolean;
     territoryVIC: boolean;
     territoryWA: boolean;
-  }
-  
-  export const australian_charities: CharityData[] = [
+}
+
+export const australian_charities: CharityData[] = [
     //TODO: Put mongodb data here
     {
         abn: 84001797511,
@@ -1088,5 +1087,4 @@ interface Charity {
         unemployment: true,
         veterans: true,
     },
-  ];
-  
+];
