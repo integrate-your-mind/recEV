@@ -1,11 +1,7 @@
-/*eslint no-useless-constructor: 2*/
 import { Field, ObjectType } from 'type-graphql';
-import { stringify } from 'querystring';
 
 @ObjectType()
 export abstract class Charity {
-    // @Field((type) => ID)
-    // id: string;
 
     @Field()
     charityLegalName!: string;
