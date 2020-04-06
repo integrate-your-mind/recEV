@@ -1,0 +1,8 @@
+.eslintrc.js
+/node_modules
+/dist/**
+/coverage/**
+/docs/**
+/src/schemas/**
+/src/resolvers/**
+/src/data.ts

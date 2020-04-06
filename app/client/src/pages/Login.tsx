@@ -17,32 +17,9 @@ import {
 } from '@ionic/react';
 import './Profile.css';
 
-<<<<<<< HEAD
-const Tab1: React.FC = () => {
-<<<<<<< HEAD
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Profile</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        {/* <ExploreContainer name="Tab 1 page" /> */}
-      </IonContent>
-    </IonPage>
-  );
-=======
-=======
 import InputControl from '../components/input-control/input-control.component';
 import Submission from '../components/submission/submission.components';
 import Menu from '../components/menu-header/Menu.component';
-import { reorderThreeOutline } from 'ionicons/icons';
 
 const Profile = () => {
     // window.location.reload(false)
@@ -79,7 +56,6 @@ const Profile = () => {
         setError('');
     };
 
->>>>>>> feature
     return (
         <React.Fragment>
             <IonAlert
@@ -99,7 +75,7 @@ const Profile = () => {
                 <Menu title="profile" />
                 <IonHeader>
                     <IonToolbar>
-                        <IonTitle>Profile</IonTitle>
+                        <IonTitle>Login/Register</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent className="ion-padding">
@@ -137,7 +113,6 @@ const Profile = () => {
             </IonApp>
         </React.Fragment>
     );
->>>>>>> feature
 };
 
 export default Profile;

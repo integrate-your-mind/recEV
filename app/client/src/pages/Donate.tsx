@@ -1,7 +1,7 @@
-import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-// import ExploreContainer from '../components/ExploreContainer';
+import React, { Suspense } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSpinner } from '@ionic/react';
 import './Donate.css';
+<<<<<<< HEAD
 <<<<<<< HEAD
 import CharityItem from '../components/CharityItem';
 
@@ -34,10 +34,12 @@ const Donate: React.FC = () => {
   );
 =======
 import CharityItem from '../components/charity-item/charity-item.component';
+=======
+>>>>>>> feature
 
-const Donate: React.FC = () => {
-    const redCrossTags: string[] = ['Food', 'Clothes', 'Spidey'];
+const CharityList = React.lazy(() => import('../components/charity-list/charity-list.components'));
 
+const Donate = () => {
     return (
         <IonPage>
             <IonHeader>
@@ -51,11 +53,25 @@ const Donate: React.FC = () => {
                         <IonTitle size="large">Donate</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                {/* <ExploreContainer name="Tab 2 page" /> */}
-                <CharityItem charityName="Red Cross" tags={redCrossTags} charityID={1} />
-                {/* <CharityItem charityName = 'Mar' />
-        <CharityItem charityName = 'Kevin' />
-        <CharityItem charityName = 'Superman' /> */}
+                {/* {organizations.map(organization => 
+                    <CharityItem key = {organization.charityID} charityName = {organization.charityName} tags = {organization.tags} charityID = {organization.charityID} charityShortDescription = {organization.charityShortDescription}/>
+                )} */}
+                {/* <CharityItem charityName="Red Cross" tags={redCrossTags} charityID={1} /> */}
+
+                <Suspense
+                    fallback={
+                        <IonPage>
+                            <IonHeader>Loading</IonHeader>
+                            <IonContent>
+                                <IonSpinner name="crescent" />
+                            </IonContent>
+                        </IonPage>
+                    }
+                >
+                    <CharityList />
+
+                    { console.log('Yup in donate')}
+                </Suspense>
             </IonContent>
         </IonPage>
     );

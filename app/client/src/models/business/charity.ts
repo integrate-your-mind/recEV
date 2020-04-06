@@ -1,8 +1,8 @@
-export interface Charity {
+export default interface Charity {
     charityName: string;
     tags: Array<string>;
     charityID: number;
-    // charityImageURL: string;
+    charityImageURL: string;
     charityShortDescription: string;
     charityLongDescription: string;
 }
