@@ -30,6 +30,7 @@
         "@types/ws": "7.2.3",
         "graphql": "14.6.0",
         "graphql-yoga": "1.18.3",
+        "mongoose": "^5.9.7",
         "reflect-metadata": "0.1.13",
         "type-graphql": "0.17.6"
     }
