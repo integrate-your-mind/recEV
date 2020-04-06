@@ -6,7 +6,7 @@ import { Charity } from './Charity';
 export default class AUCharity extends Charity {
     @Field((type) => Float)
     abn!: number;
-
+    
     @Field()
     territoryNSW!: boolean;
 
