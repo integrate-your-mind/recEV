@@ -6,9 +6,9 @@ import { stringify } from 'querystring';
 export abstract class Charity {
     // @Field((type) => ID)
     // id: string;
-    
+
     @Field()
-    charityLegalName!: string;  
+    charityLegalName!: string;
 
     @Field({ nullable: true })
     imageURL?: string;
@@ -41,7 +41,7 @@ export abstract class Charity {
     homelessness?: boolean;
 
     @Field({ nullable: true })
-    postcode!: number;  
+    postcode!: number;
 
     @Field({ nullable: true })
     education?: boolean;

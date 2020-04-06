@@ -1,5 +1,6 @@
-!.eslintrc.js
-/build/**
+.eslintrc.js
+/node_modules
+/dist/**
 /coverage/**
 /docs/**
 /src/schemas/**
