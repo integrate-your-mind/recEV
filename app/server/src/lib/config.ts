@@ -1,5 +1,6 @@
 import { config as configDotenv } from 'dotenv';
 import { resolve } from 'path';
+// import * as _ from 'lodash';
 
 switch (process.env.NODE_ENV) {
   case 'development':
@@ -32,15 +33,11 @@ const throwErrorIfNoEnv = <T, K extends keyof T>(obj: Partial<T>, prop: K, msg?:
   }
 };
 
-const VARIABLES = ['MONGO_DB'];
+const ENV_VARIABLES: string[] = ['NODE_ENV', 'MONGO_DB'];
 
-//TODO: Change this if you add more environment variables to this
-/**
- * VARIABLES.forEach(var=>{
- * throwErrorIfNoEnv(process.env, var);
- * })
- */
-throwErrorIfNoEnv(process.env, VARIABLES[0]);
+ENV_VARIABLES.forEach((v) => {
+  throwErrorIfNoEnv(process.env, v);
+});
 
 export interface Env {
   MONGO_DB: string;
