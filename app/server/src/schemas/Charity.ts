@@ -1,11 +1,11 @@
 import { Field, ObjectType } from 'type-graphql';
 import { getModelForClass } from '@typegoose/typegoose';
+import { ObjectId } from 'mongodb';
 
 @ObjectType()
 export class Charity {
-
   //TODO: Add mongo id to decorator?
-  @Field(type => ObjectIdScalar)
+  @Field()
   readonly id!: ObjectId;
 
   @Field()
