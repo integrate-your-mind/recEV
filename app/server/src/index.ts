@@ -5,9 +5,8 @@ import { buildSchema } from 'type-graphql';
 import { GraphQLServer } from 'graphql-yoga';
 import { connect } from 'mongoose';
 import { ObjectIdScalar } from './scalars/ObjectId';
-
-import CharityResolver from './resolvers/CharityResolver';
 import { ObjectId } from 'mongodb';
+import CharityResolver from './resolvers/CharityResolver';
 
 async function bootstrap(): Promise<void> {
   try {
