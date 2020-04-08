@@ -10,9 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const type_graphql_1 = require("type-graphql");
+// import { ObjectId } from 'mongoose';
 const typegoose_1 = require("@typegoose/typegoose");
+const mongodb_1 = require("mongodb");
 let Charity = class Charity {
 };
+__decorate([
+    type_graphql_1.Field(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], Charity.prototype, "charityId", void 0);
 __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", String)

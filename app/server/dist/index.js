@@ -10,7 +10,11 @@ require("./lib/env");
 const type_graphql_1 = require("type-graphql");
 const graphql_yoga_1 = require("graphql-yoga");
 const mongoose_1 = require("mongoose");
+const each_1 = __importDefault(require("lodash/each"));
 const CharityResolver_1 = __importDefault(require("./resolvers/CharityResolver"));
+const ;
+this;
+number[] = each_1.default([1,]);
 async function bootstrap() {
     try {
         const schema = await type_graphql_1.buildSchema({
