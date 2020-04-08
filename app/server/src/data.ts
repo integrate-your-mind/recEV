@@ -2,6 +2,12 @@ import { processData } from '../src/utils/helpers';
 
 /* eslint no-use-before-define: 0 */
 interface Charity {
+  /**TODO:
+   * Add id member
+   * Add last_modified member
+   * Add date_created member
+   * Remove timestamp member
+   */
   charityLegalName: string;
   imageURL?: string;
   smallDescription: string | any;
@@ -36,6 +42,7 @@ const charityProps = [
   'country',
 ];
 
+//TODO: Endpoint to fetch all charity data would go here.
 export const charities: object[] = [
   //TODO: Put mongodb data here
   {

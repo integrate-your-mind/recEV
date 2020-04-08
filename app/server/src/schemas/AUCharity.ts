@@ -12,7 +12,7 @@ class prop {
 }
 
 @ObjectType()
-export default class AUCharity extends Charity {
+export default class CharityItem extends Charity {
   @Field((type) => [prop])
   props?: prop[];
 }
