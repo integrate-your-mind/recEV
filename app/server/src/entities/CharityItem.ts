@@ -4,18 +4,18 @@ import { getModelForClass } from '@typegoose/typegoose';
 import { Charity } from './Charity';
 
 @ObjectType()
-class prop {
+class Prop {
   @Field()
-  member!: string;
+  key!: string;
 
   @Field()
-  values!: string;
+  value!: string;
 }
 
 @ObjectType()
 export class CharityItem extends Charity {
-  @Field((type) => [prop])
-  props?: prop[];
+  @Field((type) => [Prop])
+  props?: Prop[];
 }
 
 export const CharityItemModel = getModelForClass(CharityItem);
