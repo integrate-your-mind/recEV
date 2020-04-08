@@ -3,23 +3,31 @@ import { getModelForClass } from '@typegoose/typegoose';
 
 @ObjectType()
 export class Charity {
+
+  //TODO: Add mongo id to decorator?
+  @Field(type => ObjectIdScalar)
+  readonly id!: ObjectId;
+
   @Field()
-  public charityLegalName!: string;
+  charityLegalName!: string;
 
   @Field({ nullable: true })
-  public imageURL?: string;
+  imageURL?: string;
 
   @Field()
-  public smallDescription!: string;
+  charityWebsite!: string;
+
+  @Field()
+  smallDescription!: string;
 
   @Field({ nullable: true })
-  public longDescription?: string;
+  longDescription?: string;
 
   @Field()
   addressLine1!: string;
 
   @Field()
-  townCity!: string;
+  city!: string;
 
   @Field()
   state!: string;
@@ -27,32 +35,20 @@ export class Charity {
   @Field()
   country!: string;
 
+  @Field({ nullable: true })
+  postcode!: string;
+
   @Field()
-  charityWebsite!: string;
+  is_active!: boolean;
 
-  @Field({ nullable: true })
-  health?: boolean;
+  @Field()
+  date_created!: Date;
 
-  @Field({ nullable: true })
-  homelessness?: boolean;
+  @Field()
+  last_modified!: Date;
 
-  @Field({ nullable: true })
-  postcode!: number;
-
-  @Field({ nullable: true })
-  education?: boolean;
-
-  @Field({ nullable: true })
-  chronicIllness?: boolean;
-
-  @Field({ nullable: true })
-  disabilities?: boolean;
-
-  @Field({ nullable: true })
-  unemployment?: boolean;
-
-  @Field({ nullable: true })
-  veterans?: boolean;
+  @Field(() => [String], { nullable: true })
+  cause?: string | string[];
 }
 
-const charityModel = getModelForClass(Charity);
+export const charityModel = getModelForClass(Charity);

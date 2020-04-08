@@ -1,18 +1,20 @@
 /* eslint no-use-before-define: 0 */ // --> OFF
 import 'reflect-metadata';
 import './lib/env';
-// import errorReporter from './lib/errors';
 import { buildSchema } from 'type-graphql';
 import { GraphQLServer } from 'graphql-yoga';
 import { connect } from 'mongoose';
+import { ObjectIdScalar } from './scalars/ObjectId';
 
 import CharityResolver from './resolvers/CharityResolver';
+import { ObjectId } from 'mongodb';
 
 async function bootstrap(): Promise<void> {
   try {
     const schema = await buildSchema({
       resolvers: [CharityResolver],
       emitSchemaFile: true,
+      scalarsMap: [{ type: ObjectId, scalar: ObjectIdScalar }],
     });
 
     const mongoose: typeof import('mongoose') = await connect(encodeURI(process.env.MONGO_DB as string), {
