@@ -1,5 +1,6 @@
 /* eslint no-use-before-define: 0 */ // --> OFF
-import { Float, Field, ObjectType } from 'type-graphql';
+import { Field, ObjectType } from 'type-graphql';
+import { getModelForClass } from '@typegoose/typegoose';
 import { Charity } from './Charity';
 
 @ObjectType()
@@ -12,7 +13,9 @@ class prop {
 }
 
 @ObjectType()
-export default class CharityItem extends Charity {
+export class CharityItem extends Charity {
   @Field((type) => [prop])
   props?: prop[];
 }
+
+export const CharityItemModel = getModelForClass(CharityItem);

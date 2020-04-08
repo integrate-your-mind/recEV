@@ -1,4 +1,5 @@
-import { processData } from '../src/utils/helpers';
+import { processData } from './utils/generic-helpers';
+import { postData } from '../src/utils/charity-helpers';
 
 /* eslint no-use-before-define: 0 */
 interface Charity {
@@ -1101,3 +1102,6 @@ export const charities: object[] = [
 ];
 
 const processedData = processData(charities, charityProps);
+
+postData(processedData);
+

@@ -1,5 +1,4 @@
 import { Field, ObjectType } from 'type-graphql';
-import { getModelForClass } from '@typegoose/typegoose';
 import { ObjectId } from 'mongodb';
 
 @ObjectType()
@@ -51,5 +50,3 @@ export class Charity {
   @Field(() => [String], { nullable: true })
   cause?: string | string[];
 }
-
-export const charityModel = getModelForClass(Charity);
