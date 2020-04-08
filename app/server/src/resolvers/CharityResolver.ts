@@ -1,7 +1,7 @@
 /* eslint no-use-before-define: 0 */ // --> OFF
 import { Query, Resolver } from 'type-graphql';
 import { CharityProps, charities } from '../data';
-import CharityItem from '../schemas/AUCharity';
+import CharityItem from '../entities/CharityItem';
 
 @Resolver((of) => CharityItem)
 export default class {
