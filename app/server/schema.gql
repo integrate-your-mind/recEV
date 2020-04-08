@@ -3,25 +3,6 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type AUCharity {
-  id: ObjectId!
-  charityLegalName: String!
-  imageURL: String
-  charityWebsite: String!
-  smallDescription: String!
-  longDescription: String
-  addressLine1: String!
-  city: String!
-  state: String!
-  country: String!
-  postcode: String
-  is_active: Boolean!
-  date_created: DateTime!
-  last_modified: DateTime!
-  cause: [String!]
-  props: [prop!]!
-}
-
 type Charity {
   id: ObjectId!
   charityLegalName: String!
@@ -40,6 +21,25 @@ type Charity {
   cause: [String!]
 }
 
+type CharityItem {
+  id: ObjectId!
+  charityLegalName: String!
+  imageURL: String
+  charityWebsite: String!
+  smallDescription: String!
+  longDescription: String
+  addressLine1: String!
+  city: String!
+  state: String!
+  country: String!
+  postcode: String
+  is_active: Boolean!
+  date_created: DateTime!
+  last_modified: DateTime!
+  cause: [String!]
+  props: [prop!]!
+}
+
 """
 The javascript `Date` as string. Type represents date and time as the ISO Date string.
 """
@@ -54,5 +54,5 @@ type prop {
 }
 
 type Query {
-  fetchCharities: [AUCharity!]!
+  fetchCharities: [CharityItem!]!
 }
