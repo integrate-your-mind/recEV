@@ -37,7 +37,7 @@ type CharityItem {
   date_created: DateTime!
   last_modified: DateTime!
   cause: [String!]
-  props: [prop!]!
+  props: [Prop!]!
 }
 
 """
@@ -48,9 +48,9 @@ scalar DateTime
 """MongoDB ObjectId scalar type"""
 scalar ObjectId
 
-type prop {
-  member: String!
-  values: String!
+type Prop {
+  key: String!
+  value: String!
 }
 
 type Query {

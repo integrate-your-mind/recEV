@@ -1,15 +1,20 @@
 import { processData } from './utils/generic-helpers';
 import { postData } from '../src/utils/charity-helpers';
+import { CharityItem } from '../src/entities/CharityItem';
+import each from 'lodash/each';
+import { ObjectId } from 'mongodb';
 
 /* eslint no-use-before-define: 0 */
-interface Charity {
+export interface ICharity {
   /**TODO:
    * Add id member
    * Add last_modified member
    * Add date_created member
    * Remove timestamp member
    */
+  readonly id: ObjectId;
   charityLegalName: string;
+  charityWebsite: string; 
   imageURL?: string;
   smallDescription: string | any;
   longDescription?: string | any;
@@ -18,17 +23,19 @@ interface Charity {
   postcode: number;
   state: string;
   country: string;
-  cause?: string | string[];
+  cause?: string[];
   is_active: boolean;
-  timestamp: Date;
+  last_modified: Date;
+  date_created: Date;
 }
 
-export interface prop {
-  keys: string;
-  values: any;
+export interface IProp {
+  key: string;
+  value: any;
 }
-export interface CharityProps extends Charity {
-  props: prop[];
+
+export interface ICharityItem extends ICharity {
+  props: IProp[];
 }
 
 const charityProps = [
@@ -1101,7 +1108,6 @@ export const charities: object[] = [
   //   },
 ];
 
-const processedData = processData(charities, charityProps);
+const processedCharities: object[] = processData(charities, charityProps);
 
-postData(processedData);
-
+postData(processedCharities);

@@ -48,5 +48,5 @@ export class Charity {
 
   //TODO: Add optional parameter to decorator
   @Field(() => [String], { nullable: true })
-  cause?: string | string[];
+  cause?: string[];
 }
