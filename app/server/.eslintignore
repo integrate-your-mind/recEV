@@ -3,6 +3,6 @@
 /dist/**
 /coverage/**
 /docs/**
-/src/schemas/**
+/src/entities/**
 /src/resolvers/**
 /src/data.ts

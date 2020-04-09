@@ -1,0 +1,18 @@
+# Pulling the latest version of node from the docker hub
+FROM node:latest
+
+# Setting the work directory
+WORKDIR /usr/src/app
+
+# Copying our package.json
+COPY package.json .
+
+# Running npm install
+RUN npm install
+
+# Copying our source folders/files
+COPY . .
+
+# Running our node app in development mode
+CMD ["npm", "run", "start:dev"]; 
+
