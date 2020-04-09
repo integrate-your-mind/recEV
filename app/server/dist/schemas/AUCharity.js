@@ -15,7 +15,7 @@ const Charity_1 = require("./Charity");
 let AUCharity = class AUCharity extends Charity_1.Charity {
 };
 __decorate([
-    type_graphql_1.Field((type) => type_graphql_1.Int),
+    type_graphql_1.Field((type) => type_graphql_1.Float),
     __metadata("design:type", Number)
 ], AUCharity.prototype, "abn", void 0);
 __decorate([

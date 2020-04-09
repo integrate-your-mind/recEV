@@ -3,55 +3,54 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type AUCharity {
+type Charity {
+  id: ObjectId!
   charityLegalName: String!
   imageURL: String
+  charityWebsite: String!
   smallDescription: String!
   longDescription: String
   addressLine1: String!
-  townCity: String!
+  city: String!
   state: String!
   country: String!
-  charityWebsite: String!
-  health: Boolean
-  homelessness: Boolean
-  postcode: Float
-  education: Boolean
-  chronicIllness: Boolean
-  disabilities: Boolean
-  unemployment: Boolean
-  veterans: Boolean
-  abn: Float!
-  territoryNSW: Boolean!
-  territoryACT: Boolean!
-  territoryNT: Boolean!
-  territoryQLD: Boolean!
-  territorySA: Boolean!
-  territoryTAS: Boolean!
-  territoryVIC: Boolean!
-  territoryWA: Boolean!
+  postcode: String
+  isActive: Boolean!
+  dateCreated: DateTime!
+  lastModified: DateTime!
 }
 
-type Charity {
+type CharityItem {
+  id: ObjectId!
   charityLegalName: String!
   imageURL: String
+  charityWebsite: String!
   smallDescription: String!
   longDescription: String
   addressLine1: String!
-  townCity: String!
+  city: String!
   state: String!
   country: String!
-  charityWebsite: String!
-  health: Boolean
-  homelessness: Boolean
-  postcode: Float
-  education: Boolean
-  chronicIllness: Boolean
-  disabilities: Boolean
-  unemployment: Boolean
-  veterans: Boolean
+  postcode: String
+  isActive: Boolean!
+  dateCreated: DateTime!
+  lastModified: DateTime!
+  props: [Prop!]!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+"""MongoDB ObjectId scalar type"""
+scalar ObjectId
+
+type Prop {
+  key: String!
+  value: String!
 }
 
 type Query {
-  fetchCharities: [AUCharity!]!
+  fetchCharities: [CharityItem!]!
 }
