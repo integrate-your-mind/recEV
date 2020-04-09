@@ -15,9 +15,9 @@ type Charity {
   state: String!
   country: String!
   postcode: String
-  is_active: Boolean!
-  date_created: DateTime!
-  last_modified: DateTime!
+  isActive: Boolean!
+  dateCreated: DateTime!
+  lastModified: DateTime!
   cause: [String!]
 }
 
@@ -33,9 +33,9 @@ type CharityItem {
   state: String!
   country: String!
   postcode: String
-  is_active: Boolean!
-  date_created: DateTime!
-  last_modified: DateTime!
+  isActive: Boolean!
+  dateCreated: DateTime!
+  lastModified: DateTime!
   cause: [String!]
   props: [Prop!]!
 }

@@ -1,9 +1,5 @@
 import each from 'lodash/each';
-
-//Value interface *
-//Type interface *
-//instantiate object of type Type
-//use string interpolation to dynamically add the key values to the new object
+import { IProp } from '../data';
 
 export interface IValue {
   prop: string;
@@ -14,24 +10,19 @@ export interface IType {
 }
 
 export function processData<T>(data: T[], props: string[]): T[] {
-  const dynamicObject: IType = {}; //t['field1'] = { prop: null };
-
+  const dynamicObject: IType = { ['props']: ([] as unknown) as IValue }; //t['field1'] = { prop: null };
+  const propsArr: IProp[] = [];
   const processedData = each(data, (dataObject) => {
     each(Object.keys(dataObject), (key) => {
       if (props.includes(key)) {
         dynamicObject[`${key}`] = ((dataObject as unknown) as { [key: string]: unknown })[`${key}`] as IValue;
-        console.log(dynamicObject);
+        // console.log(dynamicObject);
       } else {
-        // console.log(
-        //   /** Ignore this error */
-        //   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //   //@ts-ignore
-        //   'Other Value Found: \n' + 'Key: [' + key + ']' + '\nValue:' + '[' + dataObject[key.toString()] + ']',
-        // );
+        //FIXME: Set values being passed into the props array to be of IProp accordingly
+        propsArr.push(((dataObject as unknown) as { [key: string]: unknown })[`${key}`] as IValue);
       }
     });
   });
-
+  dynamicObject['props'] = (propsArr as unknown) as IValue;
   return processedData;
 }
