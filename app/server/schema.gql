@@ -18,7 +18,6 @@ type Charity {
   isActive: Boolean!
   dateCreated: DateTime!
   lastModified: DateTime!
-  cause: [String!]
 }
 
 type CharityItem {
@@ -36,7 +35,6 @@ type CharityItem {
   isActive: Boolean!
   dateCreated: DateTime!
   lastModified: DateTime!
-  cause: [String!]
   props: [Prop!]!
 }
 

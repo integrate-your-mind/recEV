@@ -69,10 +69,6 @@ __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", Date)
 ], Charity.prototype, "lastModified", void 0);
-__decorate([
-    type_graphql_1.Field(() => [String], { nullable: true }),
-    __metadata("design:type", Array)
-], Charity.prototype, "cause", void 0);
 Charity = __decorate([
     type_graphql_1.ObjectType()
 ], Charity);
