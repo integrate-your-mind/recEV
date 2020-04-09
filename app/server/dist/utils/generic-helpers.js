@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 const each_1 = __importDefault(require("lodash/each"));
 function processData(data, props) {
-    const processedData = each_1.default(data, (dataObject) => {
+    const processedData = [];
+    each_1.default(data, (dataObject) => {
         const dynamicObject = { props: [] }; //t['field1'] = { prop: null };
         // const propsArr: IValue[] = [];
         each_1.default(Object.keys(dataObject), (key) => {
@@ -26,7 +27,7 @@ function processData(data, props) {
             }
         });
         // dynamicObject['props'] = (propsArr as unknown) as IValue;
-        return dynamicObject;
+        processedData.push(dynamicObject);
     });
     return processedData;
 }

@@ -10,8 +10,9 @@ export interface IType {
   [name: string]: IValue;
 }
 
-export function processData<T>(data: T[], props: string[]): T[] {
-  const processedData = each(data, (dataObject) => {
+export function processData<T>(data: T[], props: string[]): IType[] {
+  const processedData: IType[] = [];
+  each(data, (dataObject) => {
     const dynamicObject: IType = { props: ([] as unknown) as IValue }; //t['field1'] = { prop: null };
     // const propsArr: IValue[] = [];
     each(Object.keys(dataObject), (key) => {
@@ -30,7 +31,7 @@ export function processData<T>(data: T[], props: string[]): T[] {
       }
     });
     // dynamicObject['props'] = (propsArr as unknown) as IValue;
-    return dynamicObject;
+    processedData.push(dynamicObject);
   });
 
   return processedData;
