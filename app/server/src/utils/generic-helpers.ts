@@ -26,7 +26,7 @@ export function processData<T>(data: T[], props: string[]): IType[] {
         //@ts-ignore
         dynamicObject.props.push([
           `${key}`,
-          ((dataObject as unknown) as { [key: string]: unknown })[`${key}`] as IValue,
+          `${((dataObject as unknown) as { [key: string]: unknown })[`${key}`] as IValue}`,
         ]);
       }
     });

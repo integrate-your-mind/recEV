@@ -47,6 +47,6 @@ export class Charity {
   lastModified!: Date;
 
   //TODO: Add optional parameter to decorator
-  @Field(() => [String], { nullable: true })
-  cause?: string[];
+  // @Field(() => [String], { nullable: true })
+  // cause?: string[];
 }

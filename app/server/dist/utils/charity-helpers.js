@@ -14,7 +14,15 @@ async function postData(data) {
         charity.lastModified = new Date();
         charity.dateCreated = new Date();
     });
-    await CharityItem_1.CharityItemModel.create(data);
+    console.log(data);
+    // await CharityItemModel.create
+    try {
+        const charityData = await CharityItem_1.CharityItemModel.create(data);
+        console.log(charityData);
+    }
+    catch (error) {
+        return Promise.reject(new Error(error));
+    }
 }
 exports.postData = postData;
 //# sourceMappingURL=charity-helpers.js.map

@@ -22,7 +22,7 @@ function processData(data, props) {
                 //@ts-ignore
                 dynamicObject.props.push([
                     `${key}`,
-                    dataObject[`${key}`],
+                    `${dataObject[`${key}`]}`,
                 ]);
             }
         });
