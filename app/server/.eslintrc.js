@@ -23,7 +23,7 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
         '@typescript-eslint/func-call-spacing': ['error'],
         '@typescript-eslint/indent': ['error', 2],
-        '@typescript-eslint/interface-name-prefix': ['error', { prefixWithI: 'never' }],
+        '@typescript-eslint/interface-name-prefix': ['error', { prefixWithI: 'always' }],
     },
     settings: {
         react: {

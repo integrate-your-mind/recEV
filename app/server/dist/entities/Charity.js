@@ -10,15 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const type_graphql_1 = require("type-graphql");
-// import { ObjectId } from 'mongoose';
-const typegoose_1 = require("@typegoose/typegoose");
 const mongodb_1 = require("mongodb");
 let Charity = class Charity {
 };
 __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", mongodb_1.ObjectId)
-], Charity.prototype, "charityId", void 0);
+], Charity.prototype, "id", void 0);
 __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", String)
@@ -27,6 +25,10 @@ __decorate([
     type_graphql_1.Field({ nullable: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "imageURL", void 0);
+__decorate([
+    type_graphql_1.Field(),
+    __metadata("design:type", String)
+], Charity.prototype, "charityWebsite", void 0);
 __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", String)
@@ -42,7 +44,7 @@ __decorate([
 __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", String)
-], Charity.prototype, "townCity", void 0);
+], Charity.prototype, "city", void 0);
 __decorate([
     type_graphql_1.Field(),
     __metadata("design:type", String)
@@ -52,44 +54,23 @@ __decorate([
     __metadata("design:type", String)
 ], Charity.prototype, "country", void 0);
 __decorate([
-    type_graphql_1.Field(),
+    type_graphql_1.Field({ nullable: true }),
     __metadata("design:type", String)
-], Charity.prototype, "charityWebsite", void 0);
-__decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Boolean)
-], Charity.prototype, "health", void 0);
-__decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Boolean)
-], Charity.prototype, "homelessness", void 0);
-__decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Number)
 ], Charity.prototype, "postcode", void 0);
 __decorate([
-    type_graphql_1.Field({ nullable: true }),
+    type_graphql_1.Field(),
     __metadata("design:type", Boolean)
-], Charity.prototype, "education", void 0);
+], Charity.prototype, "isActive", void 0);
 __decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Boolean)
-], Charity.prototype, "chronicIllness", void 0);
+    type_graphql_1.Field(),
+    __metadata("design:type", Date)
+], Charity.prototype, "dateCreated", void 0);
 __decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Boolean)
-], Charity.prototype, "disabilities", void 0);
-__decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Boolean)
-], Charity.prototype, "unemployment", void 0);
-__decorate([
-    type_graphql_1.Field({ nullable: true }),
-    __metadata("design:type", Boolean)
-], Charity.prototype, "veterans", void 0);
+    type_graphql_1.Field(),
+    __metadata("design:type", Date)
+], Charity.prototype, "lastModified", void 0);
 Charity = __decorate([
     type_graphql_1.ObjectType()
 ], Charity);
 exports.Charity = Charity;
-const charityModel = typegoose_1.getModelForClass(Charity);
 //# sourceMappingURL=Charity.js.map

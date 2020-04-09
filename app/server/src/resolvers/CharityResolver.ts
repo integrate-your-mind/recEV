@@ -1,18 +1,18 @@
-/* eslint no-use-before-define: 0 */  // --> OFF
+/* eslint no-use-before-define: 0 */ // --> OFF
 import { Query, Resolver } from 'type-graphql';
-import { CharityData, australian_charities } from '../data';
-import AUCharity from '../schemas/AUCharity';
+import { ICharityItem, charities } from '../data';
+import { CharityItem } from '../entities/CharityItem';
 
-@Resolver((of) => AUCharity)
+@Resolver((of) => CharityItem)
 export default class {
-    //TODO: Document this query, used for search functionality
-    // @Query((returns) => AUCharity, { nullable: true })
-    // auCharityByName(@Arg('charityLegalName') charityLegalName: string): CharityData | undefined {
-    //     return australian_charities.find((charity) => charity.charityLegalName === charityLegalName);
-    // }
+  //TODO: Document this query, used for search functionality
+  // @Query((returns) => AUCharity, { nullable: true })
+  // auCharityByName(@Arg('charityLegalName') charityLegalName: string): CharityData | undefined {
+  //     return australian_charities.find((charity) => charity.charityLegalName === charityLegalName);
+  // }
 
-    @Query((returns) => [AUCharity])
-    fetchCharities(): CharityData[] {
-        return australian_charities;
-    }
+  @Query((returns) => [CharityItem])
+  fetchCharities(): ICharityItem[] {
+    return charities as ICharityItem[];
+  }
 }
