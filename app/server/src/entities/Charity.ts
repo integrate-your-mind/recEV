@@ -38,13 +38,13 @@ export class Charity {
   postcode!: string;
 
   @Field()
-  is_active!: boolean;
+  isActive!: boolean;
 
   @Field()
-  date_created!: Date;
+  dateCreated!: Date;
 
   @Field()
-  last_modified!: Date;
+  lastModified!: Date;
 
   //TODO: Add optional parameter to decorator
   @Field(() => [String], { nullable: true })

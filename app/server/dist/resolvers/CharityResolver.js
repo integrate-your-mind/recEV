@@ -8,14 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint no-use-before-define: 0 */ // --> OFF
 const type_graphql_1 = require("type-graphql");
 const data_1 = require("../data");
-const AUCharity_1 = __importDefault(require("../schemas/AUCharity"));
+const CharityItem_1 = require("../entities/CharityItem");
 let default_1 = class default_1 {
     //TODO: Document this query, used for search functionality
     // @Query((returns) => AUCharity, { nullable: true })
@@ -23,17 +20,17 @@ let default_1 = class default_1 {
     //     return australian_charities.find((charity) => charity.charityLegalName === charityLegalName);
     // }
     fetchCharities() {
-        return data_1.australian_charities;
+        return data_1.charities;
     }
 };
 __decorate([
-    type_graphql_1.Query((returns) => [AUCharity_1.default]),
+    type_graphql_1.Query((returns) => [CharityItem_1.CharityItem]),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Array)
 ], default_1.prototype, "fetchCharities", null);
 default_1 = __decorate([
-    type_graphql_1.Resolver((of) => AUCharity_1.default)
+    type_graphql_1.Resolver((of) => CharityItem_1.CharityItem)
 ], default_1);
 exports.default = default_1;
 //# sourceMappingURL=CharityResolver.js.map
