@@ -17,10 +17,12 @@ let Prop = class Prop {
 };
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Prop.prototype, "key", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Prop.prototype, "value", void 0);
 Prop = __decorate([
@@ -30,6 +32,7 @@ let CharityItem = class CharityItem extends Charity_1.Charity {
 };
 __decorate([
     type_graphql_1.Field((type) => [Prop]),
+    typegoose_1.prop(),
     __metadata("design:type", Array)
 ], CharityItem.prototype, "props", void 0);
 CharityItem = __decorate([

@@ -65,7 +65,7 @@ const App: React.FC = () => {
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
     useEffect(() => {
-        setLoggedIn(false)
+        setLoggedIn(false);
     }, []);
 
     return (
@@ -75,7 +75,7 @@ const App: React.FC = () => {
                     <IonTabs>
                         <IonRouterOutlet>
                             {/* <Switch> */}
-                            <Route path="/profile" component={loggedIn === true ? Profile : Login } />
+                            <Route path="/profile" component={loggedIn ? Profile : Login} />
                             <Route path="/donate" component={Donate} exact />
                             <Route path="/map" component={Map} exact />
                             <Redirect exact from="/" to="/profile" />
