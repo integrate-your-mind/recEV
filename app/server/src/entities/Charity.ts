@@ -4,7 +4,6 @@ import { ObjectId } from 'mongodb';
 
 @ObjectType()
 export class Charity {
-  //TODO: Add mongo id to decorator?
   @Field()
   readonly id!: ObjectId;
 
