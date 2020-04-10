@@ -20,7 +20,7 @@ import './Profile.css';
 import InputControl from '../components/input-control/input-control.component';
 import Submission from '../components/submission/submission.components';
 import Menu from '../components/menu-header/Menu.component';
-import { reorderThreeOutline } from 'ionicons/icons';
+// import { reorderThreeOutline } from 'ionicons/icons';
 
 const Profile = () => {
     // window.location.reload(false)

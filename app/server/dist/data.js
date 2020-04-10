@@ -24,7 +24,7 @@ exports.charities = [
         smallDescription: 'We are a registered charitable organization providing employment services\u00a0for people with disabilities, otherwise known as an Australian Disability Enterprise (ADE).',
         longDescription: 'We are a registered charitable organization providing employment services for people with disabilities, otherwise known as an Australian Disability Enterprise (ADE). The organization was originally set up by a group of people with physical disabilities back in 1949 as a self-help group for people within the community whose disabilities were not due to war service. As such, it is one of the oldest organizations of its type now operating in Australia. Today, Access Industries provides supported employment opportunities for close to 250 people with disabilities in ADE\u2019s located at Seven Hills, Erskine Park and Horsley Park in the Sydney Metropolitan Area, Hamilton (Newcastle), and Lithgow. The total number of employees is circa 500. Access Industries provides a supportive and professional workplace that creates opportunities for people with disabilities achieve economic and community participation through meaningful employment. All employees of Access Industries receive training and support to deliver quality products for our customers. As part of its commitment to providing quality services, Access Industries employs skilled Training Officers and Welfare Officers to provide or organise additional training and support for its supported employees (i.e. employees who have a disability). This enables supported employees to optimise their work potential and personal skills, and for those wishing to do so, helps to prepare them to move on into open employment.',
         addressLine1: '131 Station Rd',
-        townCity: 'Seven Hills',
+        city: 'Seven Hills',
         state: 'New South Wales',
         postcode: 2147,
         country: 'Australia',
@@ -52,7 +52,7 @@ exports.charities = [
         smallDescription: 'We are a creative social enterprise that supports artists with intellectual disabilities, promotes their work and advocates for their inclusion in contemporary art practice. ',
         longDescription: 'Arts Project Australia has aimed high since 1974 when we set out to lead and innovate in the arts and disability sectors. Since then, the quality of our exhibitions and artwork created in our studio has flourished, fed by a range of innovative programs and activities. We were the first full-time art studio in Australia for artists with an intellectual disability and have built a reputation both in Australia and internationally for our achievements on this front. Proof lies in the consistency and quality of the exhibitions and programs that we produce and deliver, along with the extraordinary opportunities and experiences we have brokered for our artists. They have been included in exhibitions all over the world and are represented in countless public and private collections.',
         addressLine1: '24 High St',
-        townCity: 'Northcote',
+        city: 'Northcote',
         state: 'Victoria',
         postcode: 3070,
         country: 'Australia',
@@ -80,7 +80,7 @@ exports.charities = [
         smallDescription: "Whether it's nutritious meals delivered to your home, a friendly chat at one of our many community restaurants, or assistance with daily activities from one of our lovely volunteers, we're all about helping you to remain independent and socially connected in your community.",
         longDescription: 'Blue Mountains Food Services (BMFS) is a not-for-profit organization which provides a range of programs and services to residents of the Blue Mountains. These include aged care services, disability services, volunteering opportunities, a social enterprise caf\u00e9 and more. We are a proud member of the NSW Meals on Wheels association and a registered NDIS provider, with over 20 years experience in the community, disability and hospitality sector. Our services focus on meeting the nutritional needs of our clients whilst addressing the issue of social isolation by engaging clients in social activity and inclusion.',
         addressLine1: '25 Livingstone St',
-        townCity: 'Lawson',
+        city: 'Lawson',
         state: 'New South Wales',
         postcode: 2783,
         country: 'Australia',
@@ -102,6 +102,7 @@ exports.charities = [
         veterans: true,
     },
 ];
+// export const uk_charities: object[] = [];
 const processedCharities = generic_helpers_1.processData(exports.charities, charityProps);
 charity_helpers_1.postData(processedCharities);
 //# sourceMappingURL=data.js.map

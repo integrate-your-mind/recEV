@@ -9,6 +9,7 @@ class Prop {
   @Property({ required: true })
   key!: string;
 
+  //TODO: Write a custom scalar to handle multiple types (boolean || string || number)
   @Field()
   @Property({ required: true })
   value!: string;

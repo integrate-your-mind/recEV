@@ -8,6 +8,7 @@ import { IonContent } from '@ionic/react';
 const CharityList = () => {
     const [organizations, setOrganizations] = useState<Array<Charity>>([]);
 
+    //TODO: Set graphql query to fetch charities here and replace 'setOrganizations'
     useEffect(() => {
         setOrganizations([
             {
@@ -88,7 +89,7 @@ const CharityList = () => {
 
     return (
         <IonContent>
-            { console.log('Yup in charity list')}
+            {console.log('Yup in charity list')}
             {organizations.map((organization) => (
                 <CharityItem
                     key={organization.charityID}
