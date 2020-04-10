@@ -6,7 +6,7 @@
 type Charity {
   id: ObjectId!
   charityLegalName: String!
-  imageURL: String
+  imageURL: String!
   charityWebsite: String!
   smallDescription: String!
   longDescription: String
@@ -23,7 +23,7 @@ type Charity {
 type CharityItem {
   id: ObjectId!
   charityLegalName: String!
-  imageURL: String
+  imageURL: String!
   charityWebsite: String!
   smallDescription: String!
   longDescription: String

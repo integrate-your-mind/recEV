@@ -12,6 +12,7 @@ const charityProps = [
     'postcode',
     'state',
     'country',
+    'charityWebsite',
 ];
 //TODO: Endpoint to fetch all charity data would go here.
 exports.charities = [
