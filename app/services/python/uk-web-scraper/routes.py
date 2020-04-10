@@ -20,10 +20,19 @@ def get_tasks():
         def trimFirstSpace(value):
             return re.sub("^ ", "", value)
 
+        def trimDoubleSpace(value):
+            return re.sub("  ", "", value)
+
+        def trimHTML(value):
+            return re.sub("\\\\|\xa0|\u2019|\u2018|\r|\n|\b|\t", "", value)
+
+        def convertNum(value):
+            return re.sub("0", "+44", value, 1)
+
         charityLegalName = ""
         imageURL = ""
         charityNum = ""
-        smallDescription = ""
+        shortDescription = ""
         longDescription = ""
         addressLine1 = ""
         addressLineOne = ""
@@ -83,8 +92,7 @@ def get_tasks():
                     if desc.string == None:
                         break
                     else:
-                        longDescription = longDescription + \
-                            re.sub(".$", ". ", desc.string)
+                        longDescription = longDescription + desc.string
 
         contactTag = gazpacho.find("address")
         if contactTag != None:
@@ -132,9 +140,12 @@ def get_tasks():
         # TODO: Trim all values, not the keys of any whitespace, make sure all quotes are closing properly, and the json is being formatted properly.
         imageURL = trimWebsite(imageURL)
         charityWebsite = trimWebsite(charityWebsite)
-        addressLineOne = trimFirstSpace(addressLineOne)
+        addressLineOne = trimHTML(trimDoubleSpace(
+            trimFirstSpace(str(addressLineOne))))
+        shortDescription = trimHTML(str(shortDescription))
+        longDescription = trimHTML(str(longDescription))
         postcode = trimWhiteSpace(str(postcode), 0)
-        telephone = trimWhiteSpace(str(telephone), 0)
+        telephone = convertNum(trimWhiteSpace(str(telephone), 0))
 
         charityJSON = {
             "charityLegalName": charityLegalName,
@@ -143,7 +154,7 @@ def get_tasks():
             # from the  ##basically all the descriptions were long we can parse some
             "smallDescription": shortDescription,
             # of them and include the first para in small and then the
-            "longDescription": re.sub('\n|\xa0', '', longDescription),
+            "longDescription": longDescription,
             "addressLine1": addressLineOne,  # whole thing in long? Might be a bit janky
             "city": city,
             "state": state,
@@ -155,7 +166,6 @@ def get_tasks():
         # array.append(charity.json);
         return charityJSON
         # for testing:
-
 
     def dataLoop():
         loop = 1
