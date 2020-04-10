@@ -5,19 +5,20 @@ from flask import Flask, jsonify, Response
 import json
 
 app = Flask(__name__)
-@app.route("/api/uk_data", methods=["GET"])
 
+
+@app.route("/api/uk_data", methods=["GET"])
 def get_tasks():
     def ScrapePage(charityPage):
 
         def trimWhiteSpace(value, frequency):
-            return re.sub(" ", "", value,frequency)
+            return re.sub(" ", "", value, frequency)
 
         def trimWebsite(value):
-            return re.sub(" ","%20",value)
+            return re.sub(" ", "%20", value)
 
         def trimFirstSpace(value):
-            return re.sub("^ ", "",value)
+            return re.sub("^ ", "", value)
 
         charityLegalName = ""
         imageURL = ""
@@ -82,8 +83,8 @@ def get_tasks():
                     if desc.string == None:
                         break
                     else:
-                        longDescription = longDescription + re.sub(".$",". ", desc.string)
-
+                        longDescription = longDescription + \
+                            re.sub(".$", ". ", desc.string)
 
         contactTag = gazpacho.find("address")
         if contactTag != None:
@@ -95,8 +96,8 @@ def get_tasks():
                 addressLineOne = ""
                 for (
                     string
-                ) in addressLine1.stripped_strings:  ##sometimes people have put all
-                    addressLineOne = (                  ##of the address here, could seperate if <br>
+                ) in addressLine1.stripped_strings:  # sometimes people have put all
+                    addressLineOne = (  # of the address here, could seperate if <br>
                         addressLineOne + " " + string
                     )
                     # addressLineOne = addressLineOne, 1)
@@ -125,35 +126,35 @@ def get_tasks():
             else:
                 telephone = telephone.string
 
-        ##add function that collects volunteer page?
-        ##link to donation area is on each page, could be worth scraping
+        # add function that collects volunteer page?
+        # link to donation area is on each page, could be worth scraping
 
         # TODO: Trim all values, not the keys of any whitespace, make sure all quotes are closing properly, and the json is being formatted properly.
         imageURL = trimWebsite(imageURL)
         charityWebsite = trimWebsite(charityWebsite)
         addressLineOne = trimFirstSpace(addressLineOne)
-        postcode = trimWhiteSpace(str(postcode),0)
-        telephone = trimWhiteSpace(str(telephone),0)
+        postcode = trimWhiteSpace(str(postcode), 0)
+        telephone = trimWhiteSpace(str(telephone), 0)
 
         charityJSON = {
-                "charityLegalName": charityLegalName,
-                "imageURL": imageURL,
-                "charityWebsite": charityWebsite,
-                "smallDescription": shortDescription,                       #from the  ##basically all the descriptions were long we can parse some
-                "longDescription": re.sub('\n|\xa0', '', longDescription) ,      ##of them and include the first para in small and then the
-                "addressLine1": addressLineOne,                                ##whole thing in long? Might be a bit janky
-                "city": city,
-                "state": state,
-                "country": "UK",
-                "postcode": postcode,
-                "telephone": str(telephone),
-                "charityNumber": charityNum
+            "charityLegalName": charityLegalName,
+            "imageURL": imageURL,
+            "charityWebsite": charityWebsite,
+            # from the  ##basically all the descriptions were long we can parse some
+            "smallDescription": shortDescription,
+            # of them and include the first para in small and then the
+            "longDescription": re.sub('\n|\xa0', '', longDescription),
+            "addressLine1": addressLineOne,  # whole thing in long? Might be a bit janky
+            "city": city,
+            "state": state,
+            "country": "UK",
+            "postcode": postcode,
+            "telephone": str(telephone),
+            "charityNumber": charityNum
         }
-        #array.append(charity.json);
+        # array.append(charity.json);
         return charityJSON
         # for testing:
-
-
 
 
     def dataLoop():
@@ -165,8 +166,8 @@ def get_tasks():
         soup = BeautifulSoup(searchPage.content, "html.parser")
         pages = int(
             str(re.sub("[^0-9]", "", str(soup.find(string=re.compile("pages")))))
-        )  ##This is unreadable lmao
-        ##also these variables have to be here as pages is read from the search site
+        )  # This is unreadable lmao
+        # also these variables have to be here as pages is read from the search site
 
         while loop <= pages:
             for links in soup.find_all(re.compile("a")):
@@ -174,7 +175,7 @@ def get_tasks():
                     completeJSON.append(ScrapePage(websiteURL + links["href"]))
 
             with open('data_s6.json', 'w') as outfile:
-              json.dump(completeJSON, outfile)
+                json.dump(completeJSON, outfile)
             loop = loop + 1
             URL = baseURL + str(loop)
             searchPage = requests.get(URL)
@@ -187,4 +188,4 @@ def get_tasks():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000, debug=True, host='0.0.0.0')
