@@ -59,13 +59,13 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              {/* <Switch> */}
-              <Route path="/profile" component={loggedIn ? Profile : Login} />
-              <Route path="/donate" component={Donate} exact />
-              <Route path="/map" component={Map} exact />
-              <Redirect exact from="/" to="/profile" />
-              <Route path="/charity/:id" component={CharityModal} />
-              {/* </Switch> */}
+              <Switch>
+                <Route path="/profile" component={Profile} />
+                <Route path="/donate" component={Donate} exact />
+                <Route path="/map" component={Map} exact />
+                <Redirect exact from="/" to="/profile" />
+                <Route path="/charity/:id" component={CharityModal} />
+              </Switch>
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="profile" href="/profile">
