@@ -3,23 +3,6 @@ import { RouteComponentProps } from 'react-router';
 
 import './CharityModal.scss';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-const CharityModal: React.FC = props => {
-    return (
-        
-    );
-}
-
-export default CharityModal;
-=======
-<<<<<<< HEAD
-const CharityModal: React.FC = (props) => {
-    return <div></div>;
-};
-=======
-=======
->>>>>>> feature
 import { ActionSheetButton } from '@ionic/core';
 import {
   IonActionSheet,
@@ -111,9 +94,4 @@ const SpeakerDetail = ({ match }: RouteComponentProps<ICharityIdParams>): JSX.El
   );
 };
 
-<<<<<<< HEAD
-export default CharityModal;
->>>>>>> feature
-=======
 export default SpeakerDetail;
->>>>>>> feature
