@@ -154,7 +154,7 @@ const Profile = () => {
   const setStatusHandler = (selectedType: 'Login' | 'Register') => {
     setStatus(selectedType);
   };
-
+  //Comment
   const submitHandler = () => {
     const enteredUsername = usernameInputRef.current?.value;
     const enteredPassword = passwordInputRef.current?.value;
