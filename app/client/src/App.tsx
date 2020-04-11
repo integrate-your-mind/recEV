@@ -35,27 +35,16 @@ import {
     IonList,
     IonItem,
 } from '@ionic/react';
->>>>>>> feature
-=======
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
->>>>>>> feature
-=======
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
->>>>>>> feature
 import { IonReactRouter } from '@ionic/react-router';
 import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Donate from './pages/Donate';
 import Map from './pages/Map';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import { TabButtonComponent } from '../src/components/tab-button/tab-button.component';
->>>>>>> feature
-=======
 import CharityModal from './pages/CharityModal';
->>>>>>> feature
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -76,9 +65,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-<<<<<<< HEAD
 const App: React.FC = () => (
-<<<<<<< HEAD
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -105,7 +92,6 @@ const App: React.FC = () => (
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-=======
     <IonApp>
         <IonReactRouter>
             <IonTabs>
@@ -129,9 +115,7 @@ const App: React.FC = () => (
             </IonTabs>
         </IonReactRouter>
     </IonApp>
->>>>>>> feature
 );
-=======
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
@@ -191,6 +175,5 @@ const App: React.FC = () => {
     </ApolloProvider>
   );
 };
->>>>>>> feature
 
 export default App;
