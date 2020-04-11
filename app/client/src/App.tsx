@@ -1,21 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect, Route, Link, Switch } from 'react-router-dom';
-import {
-    IonApp,
-    IonIcon,
-    IonLabel,
-    IonRouterOutlet,
-    IonTabBar,
-    IonTabButton,
-    IonTabs,
-    IonMenu,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonList,
-    IonItem,
-} from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
 import Profile from './pages/Profile';
