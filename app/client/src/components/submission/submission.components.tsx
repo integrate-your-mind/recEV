@@ -1,19 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import {
-  IonRow,
-  IonCol,
-  IonButton,
-  IonIcon
-} from "@ionic/react";
+import { IonRow, IonCol, IonButton, IonIcon } from '@ionic/react';
 
 // Ion Icons Imports
-import { paperPlaneOutline, refreshOutline } from "ionicons/icons";
+import { paperPlaneOutline, refreshOutline } from 'ionicons/icons';
 
 const Submissions: React.FC<{
   onSubmit: () => void;
   onReset: () => void;
-}> = props => {
+}> = (props) => {
   return (
     <IonRow>
       <IonCol className="ion-text-left">

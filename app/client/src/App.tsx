@@ -17,6 +17,7 @@ import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, Io
 =======
 import React, { useState, useEffect } from 'react';
 import { Redirect, Route, Link, Switch } from 'react-router-dom';
+<<<<<<< HEAD
 import {
     IonApp,
     IonIcon,
@@ -33,6 +34,9 @@ import {
     IonList,
     IonItem,
 } from '@ionic/react';
+>>>>>>> feature
+=======
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 >>>>>>> feature
 import { IonReactRouter } from '@ionic/react-router';
 import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
@@ -130,8 +134,8 @@ import { gql } from 'apollo-boost';
 // or you can use `import gql from 'graphql-tag';` instead
 
 const client = new ApolloClient({
-    //TODO: Setup uri to the gql endpoint
-    uri: 'SET SOME URI HERE PLEASE TO THE END POINT',
+  //TODO: Setup uri to the gql endpoint
+  uri: 'SET SOME URI HERE PLEASE TO THE END POINT',
 });
 
 // client
@@ -143,45 +147,45 @@ const client = new ApolloClient({
 //     .then((result) => console.log(result));
 
 const App: React.FC = () => {
-    const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
-    useEffect(() => {
-        setLoggedIn(false)
-    }, []);
+  useEffect(() => {
+    setLoggedIn(false);
+  }, []);
 
-    return (
-        <ApolloProvider client={client}>
-            <IonApp>
-                <IonReactRouter>
-                    <IonTabs>
-                        <IonRouterOutlet>
-                            {/* <Switch> */}
-                            <Route path="/profile" component={loggedIn === true ? Profile : Login } />
-                            <Route path="/donate" component={Donate} exact />
-                            <Route path="/map" component={Map} exact />
-                            <Redirect exact from="/" to="/profile" />
-                            <Route path="/charity/:id" component={CharityModal} />
-                            {/* </Switch> */}
-                        </IonRouterOutlet>
-                        <IonTabBar slot="bottom">
-                            <IonTabButton tab="profile" href="/profile">
-                                <IonIcon icon={personCircleOutline} />
-                                <IonLabel>Profile</IonLabel>
-                            </IonTabButton>
-                            <IonTabButton tab="donate" href="/donate">
-                                <IonIcon icon={walletOutline} />
-                                <IonLabel>Donate</IonLabel>
-                            </IonTabButton>
-                            <IonTabButton tab="map" href="/map">
-                                <IonIcon icon={mapOutline} />
-                                <IonLabel>Map</IonLabel>
-                            </IonTabButton>
-                        </IonTabBar>
-                    </IonTabs>
-                </IonReactRouter>
-            </IonApp>
-        </ApolloProvider>
-    );
+  return (
+    <ApolloProvider client={client}>
+      <IonApp>
+        <IonReactRouter>
+          <IonTabs>
+            <IonRouterOutlet>
+              {/* <Switch> */}
+              <Route path="/profile" component={loggedIn ? Profile : Login} />
+              <Route path="/donate" component={Donate} exact />
+              <Route path="/map" component={Map} exact />
+              <Redirect exact from="/" to="/profile" />
+              <Route path="/charity/:id" component={CharityModal} />
+              {/* </Switch> */}
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="profile" href="/profile">
+                <IonIcon icon={personCircleOutline} />
+                <IonLabel>Profile</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="donate" href="/donate">
+                <IonIcon icon={walletOutline} />
+                <IonLabel>Donate</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="map" href="/map">
+                <IonIcon icon={mapOutline} />
+                <IonLabel>Map</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </IonReactRouter>
+      </IonApp>
+    </ApolloProvider>
+  );
 };
 >>>>>>> feature
 

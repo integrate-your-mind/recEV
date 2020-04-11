@@ -1104,6 +1104,8 @@ export const charities: object[] = [
   //   },
 ];
 
+// export const uk_charities: object[] = [];
+
 const processedCharities: object[] = processData(charities, charityProps);
 
 postData(processedCharities as CharityItem[]);

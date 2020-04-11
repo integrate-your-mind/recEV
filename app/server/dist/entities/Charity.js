@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const type_graphql_1 = require("type-graphql");
+const typegoose_1 = require("@typegoose/typegoose");
 const mongodb_1 = require("mongodb");
 let Charity = class Charity {
 };
@@ -19,54 +20,67 @@ __decorate([
 ], Charity.prototype, "id", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "charityLegalName", void 0);
 __decorate([
-    type_graphql_1.Field({ nullable: true }),
+    type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "imageURL", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "charityWebsite", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "smallDescription", void 0);
 __decorate([
     type_graphql_1.Field({ nullable: true }),
+    typegoose_1.prop(),
     __metadata("design:type", String)
 ], Charity.prototype, "longDescription", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "addressLine1", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "city", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "state", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "country", void 0);
 __decorate([
     type_graphql_1.Field({ nullable: true }),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", String)
 ], Charity.prototype, "postcode", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", Boolean)
 ], Charity.prototype, "isActive", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", Date)
 ], Charity.prototype, "dateCreated", void 0);
 __decorate([
     type_graphql_1.Field(),
+    typegoose_1.prop({ required: true }),
     __metadata("design:type", Date)
 ], Charity.prototype, "lastModified", void 0);
 Charity = __decorate([
