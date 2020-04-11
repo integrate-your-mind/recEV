@@ -71,6 +71,7 @@ const Donate = () => {
           <CharityList />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     { console.log('Yup in donate')}
                 </Suspense>
             </IonContent>
@@ -78,11 +79,16 @@ const Donate = () => {
     );
 >>>>>>> feature
 =======
+=======
+>>>>>>> feature
           {console.log('Yup in donate')}
         </Suspense>
       </IonContent>
     </IonPage>
   );
+<<<<<<< HEAD
+>>>>>>> feature
+=======
 >>>>>>> feature
 };
 

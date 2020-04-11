@@ -18,6 +18,7 @@ import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, Io
 import React, { useState, useEffect } from 'react';
 import { Redirect, Route, Link, Switch } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {
     IonApp,
     IonIcon,
@@ -34,6 +35,9 @@ import {
     IonList,
     IonItem,
 } from '@ionic/react';
+>>>>>>> feature
+=======
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 >>>>>>> feature
 =======
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';

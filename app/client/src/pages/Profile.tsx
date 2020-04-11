@@ -46,6 +46,7 @@ import Menu from '../components/menu-header/Menu.component';
 
 const Profile = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // window.location.reload(false)
     console.log('Looking at profile');
 
@@ -140,6 +141,8 @@ const Profile = () => {
     );
 >>>>>>> feature
 =======
+=======
+>>>>>>> feature
   // window.location.reload(false)
   console.log('Looking at profile');
 
@@ -231,6 +234,9 @@ const Profile = () => {
       </IonApp>
     </React.Fragment>
   );
+<<<<<<< HEAD
+>>>>>>> feature
+=======
 >>>>>>> feature
 };
 
