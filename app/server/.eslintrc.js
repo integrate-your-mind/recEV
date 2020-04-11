@@ -24,10 +24,5 @@ module.exports = {
         '@typescript-eslint/func-call-spacing': ['error'],
         '@typescript-eslint/indent': ['error', 2],
         '@typescript-eslint/interface-name-prefix': ['error', { prefixWithI: 'always' }],
-    },
-    settings: {
-        react: {
-            version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
-        },
-    },
+    }
 };

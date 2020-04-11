@@ -1,0 +1,6 @@
+.eslintrc.js
+/node_modules
+/build/**
+/coverage/**
+/docs/**
+/src/serviceWorker.ts

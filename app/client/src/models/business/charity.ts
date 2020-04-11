@@ -1,8 +1,8 @@
-export default interface Charity {
-    charityName: string;
-    tags: Array<string>;
-    charityID: number;
-    charityImageURL: string;
-    charityShortDescription: string;
-    charityLongDescription: string;
+export default interface ICharity {
+  charityName: string;
+  tags: Array<string>;
+  charityID: number;
+  charityImageURL: string;
+  charityShortDescription: string;
+  charityLongDescription: string;
 }
