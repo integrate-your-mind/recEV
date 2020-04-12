@@ -16,11 +16,13 @@ async function bootstrap(): Promise<void> {
       scalarsMap: [{ type: ObjectId, scalar: ObjectIdScalar }],
     });
 
+    debugger;
     const mongoose: typeof import('mongoose') = await connect(encodeURI(process.env.MONGO_DB as string), {
       //Implementing type assertion for environment variables is important or else ts with throw an error
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+    debugger;
     const server = new GraphQLServer({ schema });
 
     server.start(() => console.log('Server is running on http://localhost:4000'));

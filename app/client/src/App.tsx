@@ -35,7 +35,7 @@ import { gql } from 'apollo-boost';
 
 const client = new ApolloClient({
   //TODO: Setup uri to the gql endpoint
-  uri: 'SET SOME URI HERE PLEASE TO THE END POINT',
+  uri: 'https://localhost:4000',
 });
 
 // client

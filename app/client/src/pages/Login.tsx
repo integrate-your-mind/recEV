@@ -31,7 +31,7 @@ const Profile = () => {
   const [status, setStatus] = useState<'Login' | 'Register'>('Login');
 
   const setStatusHandler = (selectedType: 'Login' | 'Register') => {
-    debugger;
+    {/* debugger; */}
     setStatus(selectedType);
   };
 

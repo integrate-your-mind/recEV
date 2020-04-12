@@ -7,7 +7,8 @@
     "start:dev": "npm run build:dev",
     "build:dev": "nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --fix --quiet; exit 0"
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --fix --quiet; exit 0",
+    "start:debug:ts": "node --inspect-brk --require ts-node/register ./src/index.ts"
   },
   "keywords": [],
   "author": "",
