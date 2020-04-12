@@ -31,7 +31,9 @@ const Profile = () => {
   const [status, setStatus] = useState<'Login' | 'Register'>('Login');
 
   const setStatusHandler = (selectedType: 'Login' | 'Register') => {
-    {/* debugger; */}
+    {
+      /* debugger; */
+    }
     setStatus(selectedType);
   };
 
@@ -72,7 +74,7 @@ const Profile = () => {
         ]}
       />
 
-      <IonApp>
+      <IonPage>
         <Menu title="profile" />
         <IonHeader>
           <IonToolbar>
@@ -111,7 +113,7 @@ const Profile = () => {
             <Submission onSubmit={submitHandler} onReset={resetHandler} />
           </IonGrid>
         </IonContent>
-      </IonApp>
+      </IonPage>
     </React.Fragment>
   );
 };

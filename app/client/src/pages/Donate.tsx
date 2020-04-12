@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSpinner } from '@ionic/react';
 import './Donate.css';
-
-const CharityList = React.lazy(() => import('../components/charity-list/charity-list.components'));
+import CharityList from '../components/charity-list/charity-list.components';
+{
+  /* const CharityList = React.lazy(() => import('../components/charity-list/charity-list.components')); */
+}
 
 const Donate = () => {
   return (
@@ -23,20 +25,19 @@ const Donate = () => {
                 )} */}
         {/* <CharityItem charityName="Red Cross" tags={redCrossTags} charityID={1} /> */}
 
-        <Suspense
-          fallback={
-            <IonPage>
-              <IonHeader>Loading</IonHeader>
-              <IonContent>
-                <IonSpinner name="crescent" />
-              </IonContent>
-            </IonPage>
-          }
-        >
-          <CharityList />
+        {/* <Suspense */}
+        {/*   fallback={ */}
+        {/*     <IonPage> */}
+        {/*       <IonHeader>Loading</IonHeader> */}
+        {/*       <IonContent> */}
+        {/*         <IonSpinner name="crescent" /> */}
+        {/*       </IonContent> */}
+        {/*     </IonPage> */}
+        {/*   } */}
+        {/* > */}
+        <CharityList />
 
-          {console.log('Yup in donate')}
-        </Suspense>
+        {/* </Suspense> */}
       </IonContent>
     </IonPage>
   );

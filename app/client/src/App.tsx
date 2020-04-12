@@ -40,19 +40,6 @@ const client = new ApolloClient({
   uri: 'http://localhost:4000',
 });
 
-// This is a test to make sure we are able to fetch data from our node/gql server.
-client
-  .query({
-    query: gql`
-      {
-        fetchCharities {
-          charityLegalName
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
-
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
@@ -66,13 +53,13 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              <Switch>
-                <Route path="/profile" component={Profile} />
-                <Route path="/donate" component={Donate} exact />
-                <Route path="/map" component={Map} exact />
-                <Redirect exact from="/" to="/profile" />
-                <Route path="/charity/:id" component={CharityModal} />
-              </Switch>
+              {/* <Switch> */}
+              <Route path="/profile" component={Login} />
+              <Route path="/donate" component={Donate} exact />
+              <Route path="/map" component={Map} exact />
+              <Redirect exact from="/" to="/profile" />
+              <Route path="/charity/:charityLegalName" component={CharityModal} />
+              {/* </Switch> */}
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="profile" href="/profile">

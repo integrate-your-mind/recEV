@@ -30,9 +30,11 @@
   },
   "dependencies": {
     "@typegoose/typegoose": "^6.4.0",
+    "@types/express-session": "^1.17.0",
     "@types/mongoose": "^5.7.8",
     "@types/ws": "7.2.3",
     "dotenv": "^8.2.0",
+    "express-session": "^1.17.0",
     "graphql": "14.6.0",
     "graphql-yoga": "1.18.3",
     "lodash": "^4.17.15",
