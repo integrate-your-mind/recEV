@@ -53,7 +53,6 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-<<<<<<< HEAD
               {/* <Switch> */}
               <Route path="/profile" component={Login} />
               <Route path="/donate" component={Donate} exact />
@@ -61,21 +60,19 @@ const App: React.FC = () => {
               <Redirect exact from="/" to="/profile" />
               <Route path="/charity/:charityLegalName" component={CharityModal} />
               {/* </Switch> */}
-=======
-                <Route 
-                  exact
-                  path='/dashboard'
-                  render = {() => {
-                    return loggedIn ? <Profile/> : <Login />;
-                  }}
-                />
-                <Route path="/profile" component={Profile} />
-                <Route path="/login" component={Login} />
-                <Route path="/donate" component={Donate} exact />
-                <Route path="/map" component={Map} exact />
-                <Redirect exact from="/" to="/profile" />
-                <Route path="/charity/:id" component={CharityModal} />
->>>>>>> 5444242f7baa8d9017b0173c2f2ce27955db5493
+              <Route
+                exact
+                path="/dashboard"
+                render={() => {
+                  return loggedIn ? <Profile /> : <Login />;
+                }}
+              />
+              <Route path="/profile" component={Profile} />
+              <Route path="/login" component={Login} />
+              <Route path="/donate" component={Donate} exact />
+              <Route path="/map" component={Map} exact />
+              <Redirect exact from="/" to="/profile" />
+              <Route path="/charity/:id" component={CharityModal} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
               <IonTabButton tab="profile" href="/profile">
