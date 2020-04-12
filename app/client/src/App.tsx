@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect, Route, Link, Switch } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
+
 import { IonReactRouter } from '@ionic/react-router';
 import { personCircleOutline, walletOutline, mapOutline } from 'ionicons/icons';
+
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Donate from './pages/Donate';
@@ -35,16 +37,21 @@ import { gql } from 'apollo-boost';
 
 const client = new ApolloClient({
   //TODO: Setup uri to the gql endpoint
-  uri: 'https://localhost:4000',
+  uri: 'http://localhost:4000',
 });
 
-// client
-//     .query({
-//         query: gql`
-//      BUILD GQL QUERY HERE FROM graphiQL
-//     `,
-//     })
-//     .then((result) => console.log(result));
+// This is a test to make sure we are able to fetch data from our node/gql server.
+client
+  .query({
+    query: gql`
+      {
+        fetchCharities {
+          charityLegalName
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
 
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
