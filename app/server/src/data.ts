@@ -18,7 +18,6 @@ export interface ICharity {
   state: string;
   country: string;
   cause?: string[];
-  //TODO: Refactor these to camelCase.
   isActive: Nullable<boolean>;
   lastModified: Nullable<Date>;
   dateCreated: Nullable<Date>;

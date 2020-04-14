@@ -4,20 +4,20 @@ import CharityItem from '../charity-item/charity-item.component';
 import organizations from '../../graphql/queries/charities';
 import ICharity from '../../models/business/charity';
 import { IonContent } from '@ionic/react';
-import * as _ from 'lodash';
+import map from 'lodash/map';
 
-interface ICharityData {
-  charities: ICharity[];
+interface Props {
+  charityCollection: ICharity[];
 }
 
-const CharityList = () => {
-  const { loading, error, data } = useQuery<ICharityData>(organizations);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+//@ts-ignore
+const CharityList = (props) => {
+  if (props.loading) return <p>Loading...</p>;
+  if (props.error) return <p>Error :(</p>;
   return (
     <IonContent>
-      {data &&
-        _.map(data, (charity) => {
+      {props.data &&
+        map(props.data, (charity) => {
           console.log(charity);
         })}
     </IonContent>
