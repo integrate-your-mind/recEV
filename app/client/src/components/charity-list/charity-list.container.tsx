@@ -1,8 +1,9 @@
-import { connnect } from 'react-redux';
+import { connect } from 'react-redux';
 import { State } from '../../redux/rootReducer';
 import { CharityList } from './charity-list.component';
+import { CharityCollectionState } from '../../redux/charity/charityCollection.reducer';
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: State): { charityCollection: CharityCollectionState } => ({
   charityCollection: state.charityCollection,
 });
 

@@ -10,8 +10,9 @@ interface Props {
   charityCollection: ICharity[];
 }
 
+//eslint-disable-next-line
 //@ts-ignore
-const CharityList = (props) => {
+export const CharityList = (props) => {
   if (props.loading) return <p>Loading...</p>;
   if (props.error) return <p>Error :(</p>;
   return (
