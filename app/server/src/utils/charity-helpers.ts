@@ -11,7 +11,7 @@ export async function postData(data: CharityItem[]): Promise<void> {
     charity.dateCreated = new Date();
   });
 
-  console.log(data);
+  // console.log(data);
   // await CharityItemModel.create
   try {
     const charityData = await CharityItemModel.create(data as CharityItem[]);

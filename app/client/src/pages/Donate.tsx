@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSpinner } from '@ionic/react';
 import './Donate.css';
-import CharityList from '../components/charity-list/charity-list.component';
+import { CharityListContainer } from '../components/charity-list/charity-list.container';
 {
   /* const CharityList = React.lazy(() => import('../components/charity-list/charity-list.components')); */
 }
@@ -35,7 +35,7 @@ const Donate = () => {
         {/*     </IonPage> */}
         {/*   } */}
         {/* > */}
-        <CharityList />
+        <CharityListContainer />
 
         {/* </Suspense> */}
       </IonContent>
