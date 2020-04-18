@@ -7,8 +7,11 @@ export async function postData(data: CharityItem[]): Promise<void> {
   //FIXME: Set 'dateCreated' property to only trigger when a charity is added to the database, if it already exists this property should not be updated.
   each(data, (charity) => {
     if (CharityItemModel.find()) {
+      // TODO: Check if the charity website actually works and set it as active if not update the db accoordingly
       charity.isActive = true;
+      // TODO: Add this property to the insertMany function or updateMany after any new inserts have been made
       charity.lastModified = new Date();
+      // TODO: Set this to only add to new charities not exisiting ones. This may already be working but we need to test it
       charity.dateCreated = new Date();
     }
   });
