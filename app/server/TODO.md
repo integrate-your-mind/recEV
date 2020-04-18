@@ -7,4 +7,4 @@
 5. FIXME: Fix web scraper to properly send json data
 6. TODO: Collect user information on what their volunteering and donation interests are.
 7. TODO: Setup logging (winston/morgan/helmet?)
-   //some change
+8. Implement the 'update' or 'updateMany' function from the MongoDB library in order to properly set new values as they are updated based on the charity as well as updating the timestamps for recording when values have been updated
