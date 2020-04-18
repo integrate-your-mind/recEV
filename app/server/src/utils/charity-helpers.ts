@@ -6,15 +6,17 @@ export async function postData(data: CharityItem[]): Promise<void> {
   //FIXME: Set 'isActive' property to properly update when charities shut down or are no longer active
   //FIXME: Set 'dateCreated' property to only trigger when a charity is added to the database, if it already exists this property should not be updated.
   each(data, (charity) => {
-    charity.isActive = true;
-    charity.lastModified = new Date();
-    charity.dateCreated = new Date();
+    if (CharityItemModel.find()) {
+      charity.isActive = true;
+      charity.lastModified = new Date();
+      charity.dateCreated = new Date();
+    }
   });
 
   // console.log(data);
   // await CharityItemModel.create
   try {
-    const charityData = await CharityItemModel.create(data as CharityItem[]);
+    const charityData = await CharityItemModel.insertMany(data as CharityItem[]);
     console.log(charityData);
   } catch (error) {
     return Promise.reject(new Error(error));

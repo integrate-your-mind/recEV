@@ -8,7 +8,7 @@ export class Charity {
   readonly id!: ObjectId;
 
   @Field()
-  @Property({ required: true })
+  @Property({ unique: true, required: true, index: true })
   charityLegalName!: string;
 
   @Field()
@@ -16,7 +16,7 @@ export class Charity {
   imageURL!: string;
 
   @Field()
-  @Property({ required: true })
+  @Property({ unique: true, index: true, required: true })
   charityWebsite!: string;
 
   @Field()

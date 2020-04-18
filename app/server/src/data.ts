@@ -108,10 +108,25 @@ export const uk_charities: Object[] = [
     telephone: '+441736757900',
     charityNumber: '1134680',
   },
+  {
+    charityLegalName: 'Cinnamon Trust - Helping Elderly and Terminally ill People and their Pets',
+    imageURL:
+      'https://www.charitychoice.co.uk/media/profile/c/cinnamon-trust-helping-elderly-people-and-pets-1075/cinnamontrust.jpg',
+    charityWebsite: 'http://www.cinnamon.org.uk',
+    smallDescription:
+      "We recognise the importance of the treasured relationship between people and pets and we recognise that this relationship is, more often than not seriously threatened by infirmity and frailty. We step in to ensure that any problem encountered in the day to day care of a pet can be overcome and all the benefits of owning a pet can be preserved. Our aims are achieved by tasking a national network of over 6,000 volunteers to provide any assistance required including walking dogs and pet fostering. We operate a national register of 752 care homes/sheltered housing for the elderly that will accept pets. A principal concern for elderly and terminally ill pet owners is the long term care of beloved pets. We provide lifetime care for pets whose owners have died either in our unique home from home sanctuaries or in long term foster homes. We rely entirely on donations and legacies. We make no charge for our services. 'Peace of mind and practical help for people - love, care and safety for their pets.'",
+    longDescription:
+      "We recognise the importance of the treasured relationship between people and pets and we recognise that this relationship is, more often than not seriously threatened by infirmity and frailty. We step in to ensure that any problem encountered in the day to day care of a pet can be overcome and all the benefits of owning a pet can be preserved. Our aims are achieved by tasking a national network of over 6,000 volunteers to provide any assistance required including walking dogs and pet fostering. We operate a national register of 752 care homes/sheltered housing for the elderly that will accept pets. A principal concern for elderly and terminally ill pet owners is the long term care of beloved pets. We provide lifetime care for pets whose owners have died either in our unique home from home sanctuaries or in long term foster homes. We rely entirely on donations and legacies. We make no charge for our services. 'Peace of mind and practical help for people - love, care and safety for their pets.'",
+    addressLine1: '10 Market Square',
+    city: 'Hayle',
+    state: 'Cornwall',
+    country: 'UK',
+    postcode: 'TR274HE',
+    telephone: '+441736757900',
+    charityNumber: '1134680',
+  },
 ];
 
 let processedCharities: object[] = processData(uk_charities, charityProps);
 
 postData(processedCharities as CharityItem[]);
-
-debugger;
