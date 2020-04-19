@@ -11,7 +11,7 @@ RUN apk add build-base
 RUN mkdir /usr/src/app
 
 # Install dependencies
-RUN pip install bs4 flask requests grequests
+RUN pip install bs4 flask requests
 
 # Copy directory contents from source
 COPY . .

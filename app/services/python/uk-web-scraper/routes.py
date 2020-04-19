@@ -116,7 +116,7 @@ def get_tasks():
 
         '''
         Expenditure can be scraped off this website
-        not sure of the legality of this as they
+        not sure of the legality of this as they 
         pay for it from a third party
         https://www.charityfinancials.com/
         '''
@@ -165,7 +165,7 @@ def get_tasks():
     def searchLoop(pages):
 
         loop = 0
-        while loop <= 1:
+        while loop <= pages:
 
             loop = loop + 1
             URL = baseURL + str(loop)
@@ -174,7 +174,7 @@ def get_tasks():
 
             threadLoop(soup)
 
-            with open("completeTest2.json", "w") as outfile:
+            with open("completeTest3.json", "a") as outfile:
                 json.dump(completeJSON, outfile)
 
         return completeJSON

@@ -79,7 +79,6 @@ export const getUkCharityData = () => {
         let body = await Buffer.concat(chunks);
         let uk_charities: Object[] = _.uniqWith(JSON.parse(body.toString()), _.isEqual);
         let processedCharities: object[] = processData(uk_charities, charityProps);
-        debugger;
         postData(processedCharities as CharityItem[]);
       });
 
