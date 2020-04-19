@@ -1,23 +1,15 @@
 import { connect } from 'react-redux';
-import { State } from '../../redux/rootReducer';
-import { CharityList } from './charity-list.component';
-import { CharityCollectionState } from '../../redux/charity/charityCollection.reducer';
+import { IState } from '../../redux/rootReducer';
+import CharityList from './charity-list.component';
+import { getCharityRequestStart } from '../../redux/charity/sagas';
 
-const mapStateToProps = (state: State): { charityCollection: CharityCollectionState } => ({
-  charityCollection: state.charityCollection,
+const mapStateToProps = (state: IState) => ({
+  charities: state.charities,
+});
+//eslint-disable-next-line
+//@ts-ignore
+const mapDispatchToProps = (dispatch) => ({
+  getCharityRequestStart: () => dispatch(getCharityRequestStart()),
 });
 
-{
-  /* const mapDispatchToProps = dispatch => ({ */
-}
-
-{
-  /* }); */
-}
-
-//TODO: Move this stuff to redux
-{
-  /* const { loading, error, data } = useQuery<ICharityData>(organizations); */
-}
-
-export const CharityListContainer = connect(mapStateToProps, null)(CharityList);
+export const CharityListContainer = connect(mapStateToProps, mapDispatchToProps)(CharityList);
