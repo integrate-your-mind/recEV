@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { charityCollectionReducer, CharityCollectionState } from './charity/charityCollection.reducer';
+import { charityReducer } from './charity/charityReducer';
+import { ICharityState } from './charity/types';
 
-export interface State {
-  charityCollection: CharityCollectionState;
+export interface IState {
+  charities: ICharityState;
 }
 
-export const rootReducer = combineReducers<State>({
-  charityCollection: charityCollectionReducer,
+export const rootReducer = combineReducers<IState>({
+  charities: charityReducer,
 });
