@@ -1,200 +1,202 @@
-import requests
-import re
-from bs4 import BeautifulSoup
+from lxml.html.clean import Cleaner
 from flask import Flask, jsonify, Response
+import grequests
+import lxml.html
 import json
+import re
+import requests
+import gevent.monkey
+gevent.monkey.patch_all()
+
 
 app = Flask(__name__)
 
 
 @app.route("/api/uk_data", methods=["GET"])
 def get_tasks():
-    def ScrapePage(charityPage):
-
-        def trimWhiteSpace(value, frequency):
-            return re.sub(" ", "", value, frequency)
+    def scrapeLoop(gazpacho):
 
         def trimWebsite(value):
             return re.sub(" ", "%20", value)
 
-        def trimFirstSpace(value):
-            return re.sub("^ ", "", value)
+        def trimAllSpaces(value):
+            return re.sub(" ", "", value)
 
-        def trimDoubleSpace(value):
-            return re.sub("  ", "", value)
+        def trimEdgeSpace(value):
+            return re.sub("(^ *)|( *$)", "", value)
 
-        def trimHTML(value):
-            return re.sub("\\\\|\xa0|\u2019|\u2018|\r|\n|\b|\t", "", value)
+        def trimDoublePlusSpace(value):
+            return re.sub("  +", " ", value)
+
+        def trimNewLine(value):
+            return re.sub('r"\x92|\xa0|\t|\n|\r|\f|\v|\"', " ", value)
+
+        def trimAlpha(value):
+            return re.sub("[^0-9]", "", value)
 
         def convertNum(value):
             return re.sub("0", "+44", value, 1)
 
-        charityLegalName = ""
-        imageURL = ""
-        charityNum = ""
-        shortDescription = ""
-        longDescription = ""
-        addressLine1 = ""
-        addressLineOne = ""
-        city = ""
-        postcode = []
-        state = ""
-        telephone = ""
-        charityWebsite = ""
-        imageURL = ""
+        def checkListExists(value):
+            if len(value):
+                # considered performing xpath here for
+                return value[0].text_content()
+            else:  # briefness, but will increase computation time
+                return ""
 
-        charityPage = requests.get(charityPage)
-        gazpacho = BeautifulSoup(charityPage.content, "html.parser")
-
-        header = gazpacho.find("div", "charity-header")
-        # header contains imageURL, charityLegalName, charityNum
-        if header != None:
-            charityNum = header.find("div", "charity-hgroup")
-            if charityNum == None:
-                charityNum = ""
+        def checkDescriptionExists(value):
+            if len(value):
+                return cleanDescription.clean_html(value[0]).text_content()
             else:
-                charityNum = re.sub("[^0-9]", "", str(charityNum.p))
+                return ""
 
-            imageURL = header.find(alt="").a
-            if imageURL == None:
-                imageURL = ""
-            else:
-                imageURL = websiteURL + imageURL.img["src"]
+        gazpacho = lxml.html.fromstring(gazpacho.text)
+        # TODO: see if more can be removed
+        gazpacho = cleaner.clean_html(gazpacho)
 
-            charityLegalName = header.find("div", "charity-hgroup").h1
-            if charityLegalName == None:
-                charityLegalName = ""
-            else:
-                charityLegalName = charityLegalName.string
+        gazpacho = gazpacho.xpath("//div[@id='main-content']")[0]
 
-        content = gazpacho.find("div", "content-column")
-        # content contains the rest
+        imageURL = gazpacho.xpath("//div[@class='charity-logo']")
+        if len(imageURL):
+            for img in imageURL[0].iterlinks():  # TODO: lxml instead of python
+                if img[1] == "src":
+                    imageURL = websiteURL + img[2]
+                    break
+        else:
+            imageURL = ""
 
-        if content != None:
-            charityWebsite = content.find(target="external")
-            if charityWebsite == None:
-                charityWebsite = ""
-            else:
-                charityWebsite = charityWebsite.string
+        charityLegalName = checkListExists(gazpacho.xpath(
+            "//h1[@class='user-colour1']"))
 
-            charityDescriptions = content.find("div", "charity-description")
-            if charityDescriptions == None:
-                longDescription = ""
-                shortDescription = ""
-            else:
-                for shortdesc in charityDescriptions:
-                    if shortdesc.string == (None or "\n"):
-                        continue
-                    else:
-                        shortDescription = shortdesc.string
-                        break
-                for desc in charityDescriptions:
-                    if desc.string == None:
-                        break
-                    else:
-                        longDescription = longDescription + desc.string
+        charityNum = checkListExists(gazpacho.xpath(
+            "//div[@class='charity-hgroup']"))
 
-        contactTag = gazpacho.find("address")
-        if contactTag != None:
+        longDescription = checkDescriptionExists(gazpacho.xpath(  # removing all tags that cause problems
+            "//div[@class='charity-description']"))
 
-            addressLine1 = contactTag.find(itemprop="street-address")
-            if addressLine1 == None:
-                addressLineOne = ""
-            else:
-                addressLineOne = ""
-                for (
-                    string
-                ) in addressLine1.stripped_strings:  # sometimes people have put all
-                    addressLineOne = (  # of the address here, could seperate if <br>
-                        addressLineOne + " " + string
-                    )
-                    # addressLineOne = addressLineOne, 1)
+        addressLine1 = checkListExists(gazpacho.xpath(
+            "//span[@itemprop='street-address']"))
 
-            city = contactTag.find(itemprop="locality")
-            if city == None:
-                city = ""
-            else:
-                city = city.string
+        city = checkListExists(gazpacho.xpath("//span[@itemprop='locality']"))
+        state = checkListExists(gazpacho.xpath("//span[@itemprop='region']"))
+        postcode = checkListExists(gazpacho.xpath(
+            "//span[@itemprop='postal-code']"))
 
-            state = contactTag.find(itemprop="region")
-            if state == None:
-                state = ""
-            else:
-                state = state.string
+        telephone = checkListExists(gazpacho.xpath("//span[@itemprop='tel']"))
+        fax = checkListExists(gazpacho.xpath("//span[@itemprop='fax']"))
 
-            postcode = contactTag.find(itemprop="postal-code")
-            if postcode == None:
-                postcode = ""
-            else:
-                postcode = postcode.string
+        # website has some backend service that links to there actual account, their twitter handle is usually displayed in text
+        facebook = checkListExists(
+            gazpacho.xpath("//p[@class='url-facebook']"))
+        twitter = checkListExists(gazpacho.xpath("//p[@class='twitter']"))
 
-            telephone = contactTag.find(itemprop="tel")
-            if telephone == None:
-                telephone = ""
-            else:
-                telephone = telephone.string
+        '''script in place that hides email
+        email = checkListExists(gazpacho.xpath("//span[@itemprop='email']"))
+        '''
 
-        # add function that collects volunteer page?
-        # link to donation area is on each page, could be worth scraping
-
-        # TODO: Trim all values, not the keys of any whitespace, make sure all quotes are closing properly, and the json is being formatted properly.
+        # All this regex conversion cannot be efficient...
+        charityWebsite = checkListExists(
+            gazpacho.xpath("//p[@class='url-web']"))
         imageURL = trimWebsite(imageURL)
         charityWebsite = trimWebsite(charityWebsite)
-        addressLineOne = trimHTML(trimDoubleSpace(
-            trimFirstSpace(str(addressLineOne))))
-        shortDescription = trimHTML(str(shortDescription))
-        longDescription = trimHTML(str(longDescription))
-        postcode = trimWhiteSpace(str(postcode), 0)
-        telephone = convertNum(trimWhiteSpace(str(telephone), 0))
+        addressLine1 = trimEdgeSpace(
+            trimDoublePlusSpace(trimNewLine(addressLine1)))
+
+        # something is removing quotes from string. Could be the checkDescExists function
+        longDescription = trimEdgeSpace(
+            trimDoublePlusSpace(trimNewLine(longDescription)))
+
+        # this method does not work for 'Mr. & Mrs.'
+        shortDescription = longDescription[:longDescription.find(
+            ".")] + "..." if longDescription != "" else ""
+        postcode = trimNewLine(trimAllSpaces(postcode))
+        telephone = convertNum(trimAllSpaces(telephone))
+        fax = convertNum(trimAllSpaces(fax))
+        charityNum = trimAlpha(charityNum)
+
+        '''
+        Expenditure can be scraped off this website
+        not sure of the legality of this as they
+        pay for it from a third party
+        https://www.charityfinancials.com/
+        '''
 
         charityJSON = {
             "charityLegalName": charityLegalName,
             "imageURL": imageURL,
             "charityWebsite": charityWebsite,
-            # from the  ##basically all the descriptions were long we can parse some
             "smallDescription": shortDescription,
-            # of them and include the first para in small and then the
             "longDescription": longDescription,
-            "addressLine1": addressLineOne,  # whole thing in long? Might be a bit janky
-            "city": city,
+            "addressLine1": addressLine1,
             "state": state,
             "country": "UK",
             "postcode": postcode,
             "telephone": str(telephone),
-            "charityNumber": charityNum
+            "fax": fax,
+            "charityNumber": charityNum,
+            "facebook": facebook,
+            "twitter": twitter
         }
-        # array.append(charity.json);
-        return charityJSON
-        # for testing:
 
-    def dataLoop():
-        loop = 1
+        with open('lmxl24.json', 'a', encoding='utf8') as outfile:
+            json.dump(charityJSON, outfile, ensure_ascii=False)
 
-        baseURL = "https://www.charitychoice.co.uk/charities/search/?t=qsearch&q=all&onlinedonations=0&pid="
-        URL = baseURL + str(loop)
-        searchPage = requests.get(URL)
-        soup = BeautifulSoup(searchPage.content, "html.parser")
-        pages = int(
-            str(re.sub("[^0-9]", "", str(soup.find(string=re.compile("pages")))))
-        )  # This is unreadable lmao
-        # also these variables have to be here as pages is read from the search site
+        completeJSON.append(charityJSON)
 
-        while loop <= pages:
-            for links in soup.find_all(re.compile("a")):
-                if links.string == "More":
-                    completeJSON.append(ScrapePage(websiteURL + links["href"]))
+    def threadLoop(soup):
+        charityPages = []
+        for button in soup.find_class("btn-action"):
+            if (button.text_content() == "More"):
+                for link in button.iterlinks():
+                    charityPages.append(websiteURL + link[2])
 
-            with open('data_s6.json', 'w') as outfile:
-                json.dump(completeJSON, outfile)
+        URLS = grequests.map((grequests.get(page)
+                              for page in charityPages), size=8)
+
+        '''
+        use .imap generator and load more pages as they come through
+        create a buffer of 2 pages
+        add threading so whilst one thread is creating requests another is processing
+        '''
+
+        for gazpacho in URLS:
+            scrapeLoop(gazpacho)
+
+    def searchLoop(pages):
+
+        loop = 0
+        while loop <= 1:
+
             loop = loop + 1
             URL = baseURL + str(loop)
             searchPage = requests.get(URL)
-            soup = BeautifulSoup(searchPage.content, "html.parser")
-        return str(completeJSON)
+            soup = lxml.html.fromstring(searchPage.text)
+
+            threadLoop(soup)
+
+            with open("completeTest2.json", "w") as outfile:
+                json.dump(completeJSON, outfile)
+
+        return completeJSON
+
+    cleaner = Cleaner(links=False, style=True,
+                      safe_attrs_only=False, javascript=True)
+    cleanDescription = Cleaner(remove_tags=['p', 'span', 'a'])
+
+    completeJSON = []
 
     websiteURL = "https://www.charitychoice.co.uk"
-    completeJSON = []
-    return dataLoop()
+    baseURL = "https://www.charitychoice.co.uk/charities/search/?t=qsearch&q=all&onlinedonations=0&pid="
+
+    initialSearch = requests.get(
+        "https://www.charitychoice.co.uk/charities/search/?t=qsearch&q=all&onlinedonations=0&pid=1")
+    minestrone = lxml.html.fromstring(
+        initialSearch.text)
+
+    pages = int(
+        re.sub("[^0-9]", "", minestrone.find_class("total-pages")[0].text_content()))
+
+    return jsonify(searchLoop(pages))
 
 
 if __name__ == "__main__":

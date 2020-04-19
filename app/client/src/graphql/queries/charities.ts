@@ -1,5 +1,6 @@
 import { gql } from 'apollo-boost';
-const organizations = gql`
+
+export const fetchCharities = gql`
   {
     fetchCharities {
       charityLegalName
@@ -7,5 +8,3 @@ const organizations = gql`
     }
   }
 `;
-
-export default organizations;

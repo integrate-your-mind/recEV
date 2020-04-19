@@ -1,10 +1,10 @@
 /* eslint no-use-before-define: 0 */ // --> OFF
 import { Query, Resolver } from 'type-graphql';
-import { ICharityItem, uk_charities } from '../data';
+import { ICharityItem } from '../data';
 import { CharityItem } from '../entities/CharityItem';
 
 // TODO: Fetch data from MongoDB here.
-// const uk_charities: ICharityItem[] = [];
+const uk_charities: ICharityItem[] = [];
 
 @Resolver((of) => CharityItem)
 export default class {

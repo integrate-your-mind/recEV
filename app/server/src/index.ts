@@ -7,9 +7,11 @@ import { connect } from 'mongoose';
 import { ObjectIdScalar } from './scalars/ObjectId';
 import { ObjectId } from 'mongodb';
 import CharityResolver from './resolvers/CharityResolver';
+import { getUkCharityData } from './data';
 
 async function bootstrap(): Promise<void> {
   try {
+    getUkCharityData();
     const schema = await buildSchema({
       resolvers: [CharityResolver],
       emitSchemaFile: true,
