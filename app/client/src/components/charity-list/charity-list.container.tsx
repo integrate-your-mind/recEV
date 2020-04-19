@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { State } from '../../redux/rootReducer';
+import { IState } from '../../redux/rootReducer';
 import { CharityList } from './charity-list.component';
-import { CharityCollectionState } from '../../redux/charity/charityCollection.reducer';
+import { ICharityState } from '../../redux/charity/types';
 
-const mapStateToProps = (state: State): { charityCollection: CharityCollectionState } => ({
-  charityCollection: state.charityCollection,
+const mapStateToProps = (state: IState): { charities: ICharityState } => ({
+  charities: state.charities,
 });
 
 {
