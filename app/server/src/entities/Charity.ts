@@ -8,19 +8,19 @@ export class Charity {
   readonly id!: ObjectId;
 
   @Field()
-  @Property({ unique: true, required: true, index: true })
+  @Property({ unique: true, index: true })
   charityLegalName!: string;
 
   @Field()
-  @Property({ required: true })
+  @Property()
   imageURL!: string;
 
   @Field()
-  @Property({ unique: true, index: true, required: true })
+  @Property()
   charityWebsite!: string;
 
   @Field()
-  @Property({ required: true })
+  @Property()
   smallDescription!: string;
 
   @Field({ nullable: true })
@@ -28,23 +28,23 @@ export class Charity {
   longDescription?: string;
 
   @Field()
-  @Property({ required: true })
+  @Property()
   addressLine1!: string;
 
   @Field()
-  @Property({ required: true })
+  @Property()
   city!: string;
 
   @Field()
-  @Property({ required: true })
+  @Property()
   state!: string;
 
   @Field()
-  @Property({ required: true })
+  @Property()
   country!: string;
 
   @Field({ nullable: true })
-  @Property({ required: true })
+  @Property()
   postcode!: string;
 
   @Field()
