@@ -11,7 +11,7 @@ import { getUkCharityData } from './data';
 
 async function bootstrap(): Promise<void> {
   try {
-    getUkCharityData();
+    // getUkCharityData();
     const schema = await buildSchema({
       resolvers: [CharityResolver],
       emitSchemaFile: true,

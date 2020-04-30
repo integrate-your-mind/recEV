@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import ICharity from '../../models/business/charity';
+import React from 'react';
+import ICharityState from '../../models/business/charity';
 import { IonContent } from '@ionic/react';
 import map from 'lodash/map';
-import { ICharityState } from '../../redux/charity/types';
 
-interface Props {
-  charities: ICharityState;
+interface IProps {
+  getCharityRequestStart: () => ICharityState;
 }
 
-const CharityList: React.FC<Props> = (props) => {
-  const { loading, error, data } = props.getCharityRequestStart;
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+const CharityList: React.FC<IProps> = (props) => {
+  const data = props.getCharityRequestStart;
   return (
     <IonContent>
       {data &&
